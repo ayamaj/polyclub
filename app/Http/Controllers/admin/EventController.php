@@ -1,0 +1,79 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\EventRequest;
+use App\Models\Event;
+use Illuminate\Http\Request;
+
+class EventController extends Controller
+{
+    public function index()
+    {
+        $events = Event::all();
+        return view('admin.events.index', compact('events'));
+    }
+
+    public function create()
+    {
+        return view('admin.events.create');
+    }
+
+    public function edit(string $id)
+    {
+        $event = Event::find($id);
+        return view('admin.events.edit', compact('event'));
+    }
+
+    public function store(EventRequest $request)
+    {
+        $avatarName = '/uploads/' . $request->name . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('uploads'), $avatarName, 60);
+
+        Event::create([
+            'titre' => $request->titre,
+            'description' => $request->description,
+            'image' => $avatarName,
+            'date' => $request->date,
+            'duration' => $request->duration,
+            'place' => $request->place,
+        ]);
+        return redirect()->route('admin.event.index')->with('status', 'le event a bien été ajouté avec succès');
+    }
+    public function delete($id)
+    {
+        Event::find($id)->delete();
+        return redirect()->route('admin.event.index')->with('status', 'Le event a bien été supprimé');
+    }
+
+
+    public function update(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'titre' => 'required|string',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'date' => 'required|string',
+            'duration' => 'required|string',
+            'place' => 'required|string',
+        ]);
+
+        $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('uploads'), $avatarName, 60);
+
+        Event::find($request->id)->update([
+            'titre' => $request->titre,
+            'description' => $request->description,
+            'image' => $avatarName,
+            'date' => $request->date,
+            'duration' => $request->duration,
+            'place' => $request->place,
+
+
+        ]);
+
+        return redirect()->route('admin.event.index')->with('status', 'le event a bien été modifié avec succès');
+    }
+}
