@@ -27,6 +27,7 @@
 
         <!-- Template Stylesheet -->
         <link href="{{ asset('dashboard/css/style.css') }}" rel="stylesheet">
+        
     </head>
 
 <body id="kt_body" class="dark-mode aside-enabled">

@@ -23,9 +23,10 @@ class RoleRequest extends FormRequest
     {
 
         return [
-            
+
             'name'=>'required|unique:roles,name,'.$this->id,
-            'description'=>'required'
+            'description'=>'required',
+            'permission'=>'required',
         ];
     }
 
@@ -33,8 +34,8 @@ class RoleRequest extends FormRequest
     {
         return [
             'name.required'=>"name is required",
-
-            'description.required'=>"description is required"
+            'description.required'=>"description is required",
+            'permission.required'=>"permission is required",
 
         ];
     }

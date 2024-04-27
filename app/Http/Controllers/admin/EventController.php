@@ -15,6 +15,7 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
+    
     public function create()
     {
         return view('admin.events.create');
@@ -28,7 +29,7 @@ class EventController extends Controller
 
     public function store(EventRequest $request)
     {
-        $avatarName = '/uploads/' . $request->name . '.' . $request->image->getClientOriginalExtension();
+        $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
 
         Event::create([
@@ -75,5 +76,11 @@ class EventController extends Controller
         ]);
 
         return redirect()->route('admin.event.index')->with('status', 'le event a bien été modifié avec succès');
+    }
+
+    public function search(Request $request)
+    {
+        $events = Event::where('titre', 'like', '%' . $request->search. '%')->get();
+         return view('admin.events.index', compact('events'));
     }
 }

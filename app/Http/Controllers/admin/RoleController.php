@@ -41,6 +41,7 @@ class RoleController extends Controller
             'description' => $request->description,
 
         ]);
+        
         // Sync permissions with the role
         $role->permissions()->sync($request->permissions);
 

@@ -1,20 +1,15 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\All_clubController;
-use App\Http\Controllers\admin\All_eventController;
-use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\ClubController;
-use App\Http\Controllers\admin\dashboard_adminController;
+use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\EventController;
 use App\Http\Controllers\admin\FormController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\WelcomeController;
+
 
 
 
@@ -33,10 +28,6 @@ use App\Http\Controllers\admin\WelcomeController;
 */
 
 // Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
-
-Route::post('/dashboard_admin', function () {
-    return view('admin.dashboard_admin.index')->name('dashboard_admin');
-});
 
 // Route::get('/dashboard', function () {
 //     return view('welcome');
@@ -64,13 +55,15 @@ Route::get('/verify', function () {
 
 
 
-Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\admin\UserController::class, 'index'])->name('index');
 
 
-// Route::prefix('admin')->group(function () {
+
+Route::middleware('auth')->group(function () {
+    Auth::routes();
+// dashboard Routes
+    Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+// End dashboard routes
+
     // Users Routes
     Route::prefix('users')->as('user.')->group(function () {
         Route::post('/delete/{id}', [UserController::class, 'delete'])->name('delete');
@@ -90,7 +83,7 @@ Route::get('/home', [App\Http\Controllers\admin\UserController::class, 'index'])
        Route::post('/delete/{id}', [PermissionController::class, 'delete'])->name('delete');
        Route::get('/edit/{id}', [PermissionController::class, 'edit'])->name('edit');
        Route::post('/update', [PermissionController::class, 'update'])->name('update');
-       Route::get('/home', [PermissionController::class, 'index'])->name('index');
+       Route::get('/', [PermissionController::class, 'index'])->name('index');
        Route::get('/create', [PermissionController::class, 'create'])->name('create');
        Route::post('/store', [PermissionController::class, 'store'])->name('store');
        Route::get('/search', [PermissionController::class, 'search'])->name('search');
@@ -116,6 +109,7 @@ Route::get('/home', [App\Http\Controllers\admin\UserController::class, 'index'])
       Route::get('/edit/{id}', [ClubController::class, 'edit'])->name('edit');
       Route::post('/update', [ClubController::class, 'update'])->name('update');
       Route::get('/', [ClubController::class, 'index'])->name('index');
+      Route::post('/search', [ClubController::class, 'search'])->name('search');
       Route::get('/create', [ClubController::class, 'create'])->name('create');
       Route::post('/store', [ClubController::class, 'store'])->name('store');
 });
@@ -126,6 +120,7 @@ Route::get('/home', [App\Http\Controllers\admin\UserController::class, 'index'])
       Route::post('/delete/{id}', [EventController::class, 'delete'])->name('delete');
       Route::get('/edit/{id}', [EventController::class, 'edit'])->name('edit');
       Route::post('/update', [EventController::class, 'update'])->name('update');
+      Route::post('/search', [EventController::class, 'search'])->name('search');
       Route::get('/', [EventController::class, 'index'])->name('index');
       Route::get('/create', [EventController::class, 'create'])->name('create');
       Route::post('/store', [EventController::class, 'store'])->name('store');
@@ -133,54 +128,20 @@ Route::get('/home', [App\Http\Controllers\admin\UserController::class, 'index'])
 });
 // End Events Routes
 
-// dashboard Routes
-  Route::prefix('dashboard')->as('dashboard.')->group(function () {
-    Route::get('/', [dashboard_adminController::class, 'index'])->name('index');
-});
-// End dashboard routes
 
-    // Users Routes
-    Route::prefix('admins')->as('admin.')->group(function () {
-        Route::post('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
-        Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
-        Route::post('/update', [AdminController::class, 'update'])->name('update');
-        Route::get('/', [AdminController::class, 'index'])->name('index');
-        Route::get('/create', [AdminController::class, 'create'])->name('create');
-        Route::post('/store', [AdminController::class, 'store'])->name('store');
-    });
-    // End users routes
+
+
 
  Route::prefix('forms')->as('form.')->group(function () {
     Route::post('/delete/{id}', [FormController::class, 'delete'])->name('delete');
-    Route::get('/edit/{id}', [FormController::class, 'edit'])->name('edit');
+    Route::get('/edit/{form}', [FormController::class, 'edit'])->name('edit');
     Route::post('/update', [FormController::class, 'update'])->name('update');
     Route::get('/', [FormController::class, 'index'])->name('index');
-    Route::get('/create', [FormController::class, 'create'])->name('create');
+    Route::post('/search', [FormController::class, 'search'])->name('search');
     Route::post('/store', [FormController::class, 'store'])->name('store');
     Route::get('/show/{id}', [FormController::class, 'show'])->name('show');
      });
 
-// // welcomes Routes
-// Route::prefix('welcomes')->as('welcome.')->group(function () {
-//     Route::post('/delete/{id}', [WelcomeController::class, 'delete'])->name('delete');
-//     Route::get('/edit/{id}', [WelcomeController::class, 'edit'])->name('edit');
-//     Route::post('/update', [WelcomeController::class, 'update'])->name('update');
-//     Route::get('/', [WelcomeController::class, 'index'])->name('index');
-//     Route::get('/create', [WelcomeController::class, 'create'])->name('create');
-//     Route::post('/store', [WelcomeController::class, 'store'])->name('store');
-// });
-// // End welcomes Routes
 
-// // all_club Routes
-// Route::prefix('all_clubs')->as('all_club.')->group(function () {
-//     Route::get('/', [All_clubController::class, 'index'])->name('index');
-//     Route::post('/store', [All_clubController::class, 'store'])->name('store');
-// });
-// // all_club Routes
 
-// // all_event Routes
-// Route::prefix('all_events')->as('all_event.')->group(function () {
-//     Route::get('/', [All_eventController::class, 'index'])->name('index');
-//     Route::post('/store', [All_eventController::class, 'store'])->name('store');
-// });
-// // all_event Routes
+    });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Models\Club;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,16 +14,14 @@ class UserController extends Controller
     {
         // $users = User::all();
         // return view('admin.users.index', compact('users'));
-         $users = User::with('role','clubs')->get();
+         $users = User::latest()->get();
          return view('admin.users.index', compact('users'));
     }
-
-
-
     public function create()
     {
+        $clubs  = Club::all();
         $roles= Role::all();
-        return view('admin.users.create',compact('roles'));
+        return view('admin.users.create',compact('roles','clubs'));
     }
 
     // public function edit($id)
@@ -35,30 +34,30 @@ class UserController extends Controller
     public function edit(User $user)
 {
     $roles = Role::all();
-    return view('admin.users.edit', compact('user', 'roles'));
+    $clubs = Club::all();
+    return view('admin.users.edit', compact('user', 'roles','clubs'));
 }
 
 
-    public function store(UserRequest $request)
-    {
-    //  dd($request->all());
-        $avatarName = '/uploads/'. $request->name . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move(public_path('uploads'), $avatarName,60);
-
-        User::create([
-        'name'=> $request->name,
-        'number'=> $request->number,
-        'role_id'=> $request->role_id,
-        'cin'=> $request->cin,
-        'class'=> $request->class,
-        'image' => $avatarName,
-        'email'=> $request->email,
-        'password'=> $request->password,
-
+public function store(UserRequest $request)
+{
+    // Création de l'utilisateur
+    $user = User::create([
+        'name' => $request->name,
+        'number' => $request->number,
+        'role_id' => $request->role_id,
+        'class' => $request->class,
+        'email' => $request->email,
+        'password' => bcrypt($request->password), // Assurez-vous de hasher le mot de passe avant de l'enregistrer
     ]);
 
-         return redirect()->route('admin.user.index')->with('status', 'le personne a bien été ajouté avec succès');
-        }
+    // Synchronisation des clubs de l'utilisateur
+    $user->clubs()->sync($request->clubs);
+
+    // Redirection vers la route 'admin.user.index' avec un message de succès
+    return redirect()->route('admin.user.index')->with('status', 'La personne a bien été ajoutée avec succès');
+}
+
 
 
     public function delete($id){
@@ -68,62 +67,26 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        if($request->password){
             $request->validate([
                 'name' => 'required|string',
                 'number'=> 'required|string',
                 'role_id'=> 'required|string',
-                'cin' => 'required|string',
                 'class' => 'required|string',
                 'email' => 'required|string',
                 'password' => 'required|min:8',
-                'image' => 'required|mimes:jpeg,png,jpg,gif',
             ]);
-            $avatarName = '/uploads/'. $request->name . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('uploads'), $avatarName,60);
-
-
                User::find($request->id)->update([
                 'name'=> $request->name,
                 'number'=> $request->number,
                 'role_id'=> $request->role_id,
-                'cin'=> $request->cin,
                 'class'=> $request->class,
-                'image' => $avatarName,
                 'email'=> $request->email,
                 'password'=> $request->password,
-
             ]);
-        }else{
-
-          $request->validate([
-            'name' => 'required|string',
-            'number'=> 'required|string',
-            'role_id'=> 'required|string',
-            'cin' => 'required|string',
-            'class' => 'required|string',
-            'email' => 'required|string',
-            'image' => 'required|mimes:jpeg,png,jpg,gif',
-        ]);
-        $avatarName = '/uploads/'. $request->name . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move(public_path('uploads'), $avatarName,60);
-
-
-           User::find($request->id)->update([
-            'name'=> $request->name,
-            'number'=> $request->number,
-            'role_id'=> $request->role_id,
-            'cin'=> $request->cin,
-            'class'=> $request->class,
-            'image' => $avatarName,
-            'email'=> $request->email,
-            'password'=> $request->password,
-
-        ]);
-        }
 
 
         return redirect()->route('admin.user.index')->with('status', 'le personne  a bien été modifié avec succès');
+
     }
 
     // public function __construct()

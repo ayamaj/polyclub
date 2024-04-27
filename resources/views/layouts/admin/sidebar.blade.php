@@ -41,7 +41,7 @@
                 id="#kt_aside_menu" data-kt-menu="true">
                       {{-- Dashboard --}}
                       <div class="menu-item">
-                        <a class="menu-link " href="{{ route('admin.dashboard.index') }}">
+                        <a class="menu-link " href="{{ route('admin.dashboard') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                                 <span class="svg-icon svg-icon-5">
@@ -165,27 +165,7 @@
                     </a>
                 </div>
                 {{-- end Event  --}}
-                 {{-- Admins --}}
-                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.admin.index') }}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                            <span class="svg-icon svg-icon-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                        fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                        fill="black" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">Admins</span>
-                    </a>
-                    </a>
-                </div>
-                {{-- end Admins --}}
+
                  {{-- demande --}}
                  <div class="menu-item">
                     <a class="menu-link " href="{{ route('admin.form.index') }}">
@@ -215,11 +195,11 @@
             <div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
                 <!--begin::User image-->
                 <div class="me-5">
-                    <div class="symbol symbol-40px cursor-pointer"
+                    {{-- <div class="symbol symbol-40px cursor-pointer"
                         data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                         data-kt-menu-overflow="true">
                         <img src="{{ asset('design/assets/media/avatars/300-1.jpg') }}" alt="" />
-                    </div>
+                    </div> --}}
                 </div>
                 <!--end::User image-->
                 <div class="flex-row-fluid flex-wrap">

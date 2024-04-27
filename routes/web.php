@@ -35,7 +35,6 @@ Route::get('/register', function () {
 Route::get('/verify', function () {
     return view('auth/verify');})->name('verify');
 
-Route::get('/home', [UserController::class, 'index'])->name('index');
 
 
 // Route::get('/confirm_password', function () {
@@ -51,22 +50,27 @@ Auth::routes();
 
 // welcomes Routes
 
-    Route::get('/', [WelcomeController::class, 'index'])->name('index');
+    Route::get('/', [WelcomeController::class, 'home'])->name('home');
 
 // End welcomes Routes
 
-// all_club Routes
-Route::prefix('all_clubs')->as('all_club.')->group(function () {
-    Route::get('/', [All_clubController::class, 'index'])->name('index');
-});
-// all_club Routes
+// club Routes
+Route::get('/clubs', [WelcomeController::class, 'clubs'])->name('clubs');
 
-// all_event Routes
-Route::prefix('all_events')->as('all_event.')->group(function () {
-    Route::get('/', [All_eventController::class, 'index'])->name('index');
-});
-// all_event Routes
+// event Routes
+Route::get('/events', [WelcomeController::class, 'events'])->name('events');
 
+//inscription
+Route::get('/inscription', [WelcomeController::class, 'inscription'])->name('inscription');
+Route::post('/inscription/store', [WelcomeController::class, 'store'])->name('inscription.store');
+
+
+// ********
+// club Routes
+ Route::get('/one_club', [WelcomeController::class, 'one_club'])->name('one_club');
+
+// event Routes
+ Route::get('/one_event', [WelcomeController::class, 'one_event'])->name('one_event');
 
 
 

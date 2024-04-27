@@ -22,9 +22,7 @@ class User extends Authenticatable
         'name',
         'number',
         'role_id',
-        'cin',
         'class',
-        'image',
         'email',
         'password',
     ];
@@ -54,9 +52,10 @@ class User extends Authenticatable
          return $this->belongsTo(Role::class,"role_id");
      }
 
-     public function clubs()
+    public function clubs()
     {
-         return $this->belongsToMany(Club::class);
+        return $this->belongsToMany(Club::class,'club_user')->withPivot('user_id','club_id');
     }
+
 
 }

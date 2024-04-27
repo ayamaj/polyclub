@@ -81,11 +81,11 @@
                     <div class="form-group">
                         <label for="image" class="required fw-bold fs-6 mb-2">Image</label>
                         <input type="file" style="border: none" id="image" name="image"
-                            class="@error('name') is-invalid @enderror">
+                            class="@error('image') is-invalid @enderror">
                         <br>
                         <div class="container_message">
-                            @error('name')
-                                <span style="color: red">{{ $message }}</span>
+                            @error('image')
+                                <span >{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
@@ -108,4 +108,7 @@
     </div>
     <br>
     <br>
+
 @endsection
+
+

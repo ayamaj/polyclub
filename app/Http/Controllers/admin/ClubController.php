@@ -22,6 +22,7 @@ class ClubController extends Controller
 
     public function edit(string $id)
     {
+
         $club = Club::find($id);
         return view('admin.clubs.edit', compact('club'));
     }
@@ -89,6 +90,12 @@ class ClubController extends Controller
         ]);
 
         return redirect()->route('admin.club.index')->with('status', 'le club  a bien été modifié avec succès');
+    }
+
+    public function search(Request $request)
+    {
+        $clubs = Club::where('name', 'like', '%' . $request->search. '%')->get();
+         return view('admin.clubs.index', compact('clubs'));
     }
 
 

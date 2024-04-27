@@ -59,7 +59,7 @@
                      <!--begin::Image input-->
                      <div class="form-group">
                         <label for="image" class="required fw-bold fs-6 mb-2">Image</label>
-                        <input type="file" style="border: none" id="image" name="image">
+                        <input type="file" style="border: none" id="image" name="image" value="{{ $club->image}}">
                     </div>
                     <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                     <!--end::Image input-->
@@ -67,8 +67,7 @@
 
                     <!--begin::submit-->
                     <div class="text-center pt-15">
-                        <button type="reset" class="btn btn-light me-3"
-                            data-kt-users-modal-action="cancel">Discard</button>
+                        
                         <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
                             <span class="indicator-label">Submit</span>
                         </button>

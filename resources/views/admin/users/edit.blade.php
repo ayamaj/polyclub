@@ -8,12 +8,13 @@
             <div class="card-body" style="width: 700px; ">
                 <form class="row g-0" action="{{ route('admin.user.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="text" name="id" style="display: none;" value="{{ $user->id }}">
                     <!--begin::name-->
                     <div class="fv-row mb-7 ">
                         <label class="required fw-bold fs-6 mb-2">Name</label>
                         <input type="text" name="name" id="name"
                             class="form-control form-control-solid mb-3 mb-lg-0 " placeholder="Full name"
-                            value="{{ $user->name }} " />
+                            value="{{ $user->name }}" />
                     </div>
                     <!--end::name-->
                     <!--end::email-->
@@ -31,13 +32,7 @@
                             class="form-control form-control-solid mb-3 mb-lg-0 " value="{{ $user->number }}" />
                     </div>
                     <!--end::number-->
-                    <!--begin::cin-->
-                    <div class="fv-row mb-7">
-                        <label class="required fw-bold fs-6 mb-2">cin</label>
-                        <input type="number" name="cin" id="cin"
-                            class="form-control form-control-solid mb-3 mb-lg-0 " value="{{ $user->cin }}" />
-                    </div>
-                    <!--end::cin-->
+
                     <!--end::class-->
                     <div class="fv-row mb-7">
                         <label class="required fw-bold fs-6 mb-2">class</label>
@@ -52,17 +47,10 @@
                             class="form-control form-control-solid mb-3 mb-lg-0 " value="{{ $user->password }}" />
                     </div>
                     <!--end::password-->
-                    <!--begin::Image input-->
-                    <div class="form-group">
-                        <label for="image" class="required fw-bold fs-6 mb-2">Image</label>
-                        <input type="file" style="border: none" id="image" name="image">
-                    </div>
-                    <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-                    <!--end::Image input-->
                     <!--begin::role-->
                     <br>
                     <br>
-                    <div class="mb-7">
+                    {{-- <div class="mb-7">
                         <label class="required fw-bold fs-6 mb-5">Role</label>
                         @foreach ($roles as $role)
                             <div class="d-flex fv-row">
@@ -86,7 +74,70 @@
                             </button>
                         </div>
                         <!--end::Actions-->
+                    </div> --}}
+                    <div class="mb-7">
+                        <label class="required fw-bold fs-6 mb-5">Role</label>
+                        @foreach ($roles as $role)
+                            <div class="d-flex fv-row">
+                                <div class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input me-3 @error('name') is-invalid @enderror" name="role_id"
+                                        type="radio" value="{{ $role->id }}"  id="kt_modal_update_role_option_0" />
+                                    <br>
+                                    <div class="container_message">
+                                        @error('role_id')
+                                            <span style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <label class="form-check-label" for="kt_modal_update_role_option_0">
+                                        <div class="fw-bolder text-gray-800" >{{ $role->name }}</div>
+                                        <div class="text-gray-600">Best for business owners and company
+                                            administrators
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class='separator separator-dashed my-5'></div>
+                        @endforeach
                     </div>
+                    <div class="mb-7">
+                        <!--begin::permission-->
+                        <label class="required fw-bold fs-6 mb-5">Club</label>
+                        {{-- @foreach ($clubs as $club)
+                            <div class="d-flex fv-row">
+                                <div class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input me-3" type="checkbox" value="{{ $club->id }}"
+                                        id="permission_{{ $club->id }}" name="permissions[]" />
+                                    <label class="form-check-label" for="permission_{{ $club->id }}">
+                                        <div class="fw-bolder text-gray-800">{{ $club->name }}</div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class='separator separator-dashed my-5'></div>
+                        @endforeach --}}
+                        @foreach ($clubs as $club)
+                        <div class="d-flex fv-row">
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input me-3" type="checkbox"
+                                       value="{{ $club->id }}" id="permission_{{ $club->id }}"
+                                       name="clubs[]" {{ $user->clubs->contains($club->id) ? 'checked' : '' }} />
+                                <label class="form-check-label" for="club_{{ $club->id }}">
+                                    <div class="fw-bolder text-gray-800">{{ $club->name }}</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class='separator separator-dashed my-5'></div>
+                        @endforeach
+                        <!--end::permission-->
+                    </div>
+
+
+                    <!--begin::Actions-->
+                    <div class="text-center pt-15">
+                        <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+                            Submit
+                        </button>
+                    </div>
+                    <!--end::Actions-->
                     <!--end::role-->
                 </form>
 

@@ -8,24 +8,25 @@
             <div class="card">
                 <div class="card-header border-0 pt-6">
                     <div class="card-title">
-                               <!--begin::Search-->
-                            <form class="d-flex align-items-center position-relative my-1 me-5" method="post" action="{{ route('admin.user.search') }}" >
-                                @csrf
-                                <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
-                                            rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                                        <path
-                                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-                                            fill="black" />
-                                    </svg>
-                                </span>
-                                <input type="text" data-kt-permissions-table-filter="search" name="search"
-                                    class="form-control form-control-solid w-250px ps-15" placeholder="Search Users" />
-                                    <button style="display: none" type="submit"></button>
-                            </form>
-                            <!--end::Search-->
+                        <!--begin::Search-->
+                        <form class="d-flex align-items-center position-relative my-1 me-5" method="post"
+                            action="{{ route('admin.user.search') }}">
+                            @csrf
+                            <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
+                                        rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+                                    <path
+                                        d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                        fill="black" />
+                                </svg>
+                            </span>
+                            <input type="text" data-kt-permissions-table-filter="search" name="search"
+                                class="form-control form-control-solid w-250px ps-15" placeholder="Search User" />
+                            <button style="display: none" type="submit"></button>
+                        </form>
+                        <!--end::Search-->
                     </div>
                     <!--begin::Add user-->
                     <div class="card-toolbar">
@@ -49,17 +50,14 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <thead>
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                <th class="w-10px pe-2">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                            data-kt-check-target="#kt_table_users .form-check-input" value="1" />
-                                    </div>
-                                </th>
-                                <th class="min-w-125px">User</th>
-                                <th class="min-w-125px">Number</th>
-                                <th class="min-w-125px">Role</th>
-                                <th class="min-w-125px">Cin</th>
-                                <th class="min-w-125px">Class</th>
+
+                                <th class="min-w-100px">Full Name</th>
+                                <th class="min-w-100px">Email</th>
+                                <th class="min-w-100px">Number</th>
+                                <th class="min-w-100px">Class</th>
+                                <th class="min-w-100px">Club</th>
+                                <th class="min-w-100px">Role</th>
+
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
@@ -67,37 +65,102 @@
                             <tbody class="text-gray-600 fw-bold">
                                 <tr>
                                     <!--begin::Checkbox-->
-                                    <td>
+                                    {{-- <td>
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
                                             <input class="form-check-input" type="checkbox" value="1" />
                                         </div>
-                                    </td>
+                                    </td> --}}
                                     <!--end::Checkbox-->
                                     <!--begin::User=-->
-                                    <td class="d-flex align-items-center">
-                                        <!--begin::image -->
-                                        <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                            <a href="view.html">
-                                                <div class="symbol-label">
-                                                    <img src="{{ asset($User->image) }}" alt="{{ $User->nom }}"
-                                                        class="w-100" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!--end::image-->
-                                        <!--begin::name et email-->
-                                        <div class="d-flex flex-column">
-                                            <a href="view.html"
-                                                class="text-gray-800 text-hover-primary mb-1">{{ $User->name }}</a>
-                                            <span>{{ $User->email }}</span>
-                                        </div>
-                                        <!--end::name et email-->
-                                    </td>
-                                    <td>{{ $User->number }}</td>
+                                    <td>{{ $User->name }}</td>
+                                    <td>{{ $User->email }}</td>
 
-                                    <td>{{ $User->role->name }}</td>
-                                    <td>{{ $User->cin }}</td>
-                                    <td>{{ $User->class }}</td>
+                                    @if ($User->number)
+                                        <td>{{ $User->number }}</td>
+                                    @else
+                                        <td>No number assigned</td>
+                                    @endif
+                                    @if ($User->class)
+                                        <td>{{ $User->class }}</td>
+                                    @else
+                                        <td>No class assigned</td>
+                                    @endif
+                                    {{-- @if ($User->clubs->isNotEmpty())
+                                    @foreach ($User->clubs as $Club)
+                                        {{ $Club->name }}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
+                                    @endforeach
+                                @else
+                                    No Clubs
+                                @endif --}}
+
+                                    {{-- @if (count($User->clubs) == 1)
+                                <td>{{ $User->club->name }}</td>
+                            @elseif (count($User->clubs) > 1)
+                                <td>
+                                    <div class="menu menu-column menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold" id="#kt_aside_menu" data-kt-menu="true">
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                            <span class="menu-link">
+                                                <span>Dashboards</span>
+                                                <span class="menu-arrow"></span>
+                                            </span>
+                                            <div class="menu-sub menu-sub-accordion menu-active-bg">
+                                                @foreach ($User->clubs as $club)
+                                                    <a class="menu-link" href="{{ route('admin.club.edit',['id' => $club->id]) }}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span>{{ $club->name }}</span>
+                                                    </a>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            @else
+                                <td>No clubs found</td>
+                            @endif --}}
+                                    @if (count($User->clubs) == 1)
+                                        <td>{{ $User->clubs->first()->name }}</td>
+                                    @elseif (count($User->clubs) > 1)
+                                        <td>
+                                            <div class="menu menu-column menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold"
+                                                id="#kt_aside_menu" data-kt-menu="true">
+                                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                                    <span class="menu-link">
+                                                        <span>All clubs</span>
+                                                        <span class="menu-arrow"></span>
+                                                    </span>
+                                                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                                                        @foreach ($User->clubs as $club)
+                                                            <a class="menu-link"
+                                                                href="{{ route('admin.club.edit', ['id' => $club->id]) }}">
+                                                                <span class="menu-bullet">
+                                                                    <span class="bullet bullet-dot"></span>
+                                                                </span>
+                                                                <span>{{ $club->name }}</span>
+                                                            </a>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    @else
+                                        <td>No clubs found</td>
+                                    @endif
+
+
+
+                                    <td>
+                                        @if ($User->role)
+                                            {{ $User->role->name }}
+                                        @else
+                                            No Role Assigned
+                                        @endif
+                                    </td>
+
                                     <!--begin::action-->
                                     <td class="text-end">
                                         <a href="#" class="btn btn-light btn-active-light-primary btn-sm"

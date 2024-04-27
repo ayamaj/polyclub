@@ -24,7 +24,9 @@
                     <div class="card-header mt-6">
                         <div class="card-title">
                             <!--begin::Search-->
-                            <div class="d-flex align-items-center position-relative my-1 me-5">
+                              <!--begin::Search-->
+                              <form class="d-flex align-items-center position-relative my-1 me-5" method="post" action="{{ route('admin.event.search') }}" >
+                                @csrf
                                 <span class="svg-icon svg-icon-1 position-absolute ms-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none">
@@ -35,9 +37,11 @@
                                             fill="black" />
                                     </svg>
                                 </span>
-                                <input type="text" data-kt-permissions-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-15" placeholder="Search Events" />
-                            </div>
+                                <input type="text" data-kt-permissions-table-filter="search" name="search"
+                                    class="form-control form-control-solid w-250px ps-15" placeholder="Search Event" />
+                                    <button style="display: none" type="submit"></button>
+                            </form>
+                            <!--end::Search-->
                             <!--end::Search-->
                         </div>
                         <div class="card-toolbar">
@@ -176,7 +180,7 @@
 
                                                             <a type="button"
                                                                 class="swal2-cancel btn fw-bold btn-active-light-primary"
-                                                                aria-label style="display: inline-block;" >No,cancel </a>
+                                                                aria-label style="display: inline-block;" href="{{ route('admin.event.index') }}">No,cancel </a>
                                                         </div>
 
                                                         <div class="swal2-footer" style="display: none;">

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('number');
             $table->string('class');
             $table->string('email')->unique();
+            $table->string('role_id')->default("membre");
             // $table->foreignId('club_id');
             $table->string('password');
             $table->timestamps();

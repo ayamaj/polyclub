@@ -18,6 +18,14 @@ class DatabaseSeeder extends Seeder
            'name' => 'Admin',
            'description' => 'Super Admin',
         ]);
+        \App\Models\Role::factory()->create([
+            'name' => 'president club',
+            'description' => 'president',
+         ]);
+         \App\Models\Role::factory()->create([
+            'name' => 'member',
+            'description' => 'member club',
+         ]);
 
         $this->call(AdminSeeder::class);
     }

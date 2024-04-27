@@ -27,6 +27,8 @@ class FormulaireRequest extends FormRequest
             'number'=>'required',
             'class'=>'required',
             'email'=>'required',
+            'password' => 'required|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+            'club_id'=>'required',
 
         ];
     }
@@ -38,7 +40,9 @@ class FormulaireRequest extends FormRequest
             'number.required'=>"you didn't fill this field (number)",
             'class.required'=>"you didn't fill this field (class)",
             'email.required'=>"you didn't fill this field (email)",
-           
+            'password.required'=>"use 8 or more characters with a mix of lettre, numbers & symbols",
+            'club_id.required'=>"club is required",
+
         ];
     }
 }

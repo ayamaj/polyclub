@@ -21,16 +21,18 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        // dd($this->all());
+    //   dd($this->all());
         return [
             'name'=>'required',
             'number'=>'required',
             'role_id'=>'required',
-            'cin'=>'required',
             'class'=>'required',
-            'image'=>'required',
             'email'=>'required',
-            'password'=>'required'
+            'password' => 'required',
+            'clubs' => 'required|array|min:1', // Ensure at least one club is selected
+            'clubs.*' => 'exists:clubs,id',
+
+
 
         ];
     }
@@ -41,11 +43,11 @@ class UserRequest extends FormRequest
             'name.required'=>"name is required",
             'number.required'=>"number is required",
             'role_id.required'=>"role is required",
-            'cin.required'=>"cin is required",
+            'club_id.required'=>"club is required",
             'class.required'=>"class is required",
-           'image.required'=>"image is required",
             'email.required'=>"email is required",
-            'password.required'=>"password is required"
+            'password.required'=>"password is required",
+
         ];
     }
 }

@@ -11,11 +11,11 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <ul>
+                {{-- <ul>
                     @foreach ($errors->all() as $error)
                         <li class="alert alert-danger">{{ $error }}</li>
                     @endforeach
-                </ul>
+                </ul> --}}
                 <form id="kt_modal_add_user_form" class="form" action="{{ route('admin.event.store') }}" method="POST"
                 enctype="multipart/form-data">
                     @csrf

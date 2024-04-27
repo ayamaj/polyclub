@@ -34,33 +34,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 me-n3">
-                @if (Route::has('login'))
-               @auth
-            <a href="{{ url('/home') }}"class="nav-item nav-link">Home</a>
-                 @else
-               <a href="{{ route('index') }}"class="nav-item nav-link">Home</a>
-                <a href="{{ route('login') }}" class="nav-item nav-link">Sign-In<a>
 
-              {{-- @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="nav-item nav-link">Register<a>
-             @endif --}}
-                @endauth
-                @endif
-                <a href="{{ route('admin.form.create') }}" class="nav-item nav-link">Formulaire</a>
-                <a href="{{ route('all_club.index') }}" class="nav-item nav-link">Clubs</a>
-                <a href="{{ route('all_event.index') }}" class="nav-item nav-link">Events</a>
-                 {{-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                        <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                        <a href="feature.html" class="dropdown-item">Features</a>
-                        <a href="quote.html" class="dropdown-item">Quote Form</a>
-                        <a href="team.html" class="dropdown-item">The Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    </div>
-                </div>  --}}
-             {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
+               <a href="{{ route('home') }}"class="nav-item nav-link">Home</a>
+                {{-- <a href="{{ route('login') }}" class="nav-item nav-link">Sign-In<a> --}}
+                <a href="{{ route('inscription') }}" class="nav-item nav-link">Inscription</a>
+                <a href="{{ route('clubs') }}" class="nav-item nav-link">Clubs</a>
+                <a href="{{ route('events') }}" class="nav-item nav-link">Events</a>
+
             </div>
         </div>
     </nav>

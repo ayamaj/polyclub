@@ -39,7 +39,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href= "{{ asset('design/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href= "{{ asset('design/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Global Stylesheets Bundle-->
     <!--Begin::Google Tag Manager -->
     <script>
@@ -82,9 +82,10 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
                         <!--begin::Logo-->
                         <div class="container_logo">
-                        <a href="../../index.html" >
-                            <img alt="Logo" src= "{{ asset('design/assets/media/image/logo.svg') }}" class="logo" />
-                        </a>
+                            <a href="../../index.html">
+                                <img alt="Logo" src= "{{ asset('design/assets/media/image/logo.svg') }}"
+                                    class="logo" />
+                            </a>
                         </div>
                     </div>
                     <!--end::Header-->
@@ -101,7 +102,7 @@ License: For each use you must have a valid license purchased only from above li
             <div class="d-flex flex-column flex-lg-row-fluid py-10">
                 <div class="d-flex flex-center flex-column flex-column-fluid">
                     <div class="w-lg-600px p-10 p-lg-15 mx-auto">
-                        <form class="form w-100"  method="POST"  action="{{ route('admin.form.store') }}" >
+                        <form class="form w-100" method="POST" action="{{ route('inscription.store') }}">
                             @csrf
                             <div class="mb-10 text-center">
                                 <h1 class="text-dark mb-3">Form </h1>
@@ -113,12 +114,12 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::name-->
                             <div class=" fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6"
-                                    for="name">{{ __('Name') }}</label>
+                                    for="name">{{ __('Full Name') }}</label>
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('name') is-invalid @enderror"
-                                    id="name" type="text" name="name" value="{{ old('name') }}"  />
+                                    id="name" type="text" name="name" value="{{ old('name') }}" />
                                 @error('name')
-                                    <span  class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -130,7 +131,7 @@ License: For each use you must have a valid license purchased only from above li
                                     for="name">{{ __('Number') }}</label>
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('number') is-invalid @enderror"
-                                    id="number" type="number" name="number" value="{{ old('number') }}"  />
+                                    id="number" type="number" name="number" value="{{ old('number') }}" />
                                 @error('number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -145,8 +146,7 @@ License: For each use you must have a valid license purchased only from above li
                                     for="class">{{ __('Class') }}</label>
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('class') is-invalid @enderror"
-                                    id="class" type="text" name="class" value="{{ old('class') }}"
-                                     />
+                                    id="class" type="text" name="class" value="{{ old('class') }}" />
                                 @error('class')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -161,8 +161,7 @@ License: For each use you must have a valid license purchased only from above li
                                     for="email">{{ __('Email Address') }}</label>
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror"
-                                    id="email" type="email" name="email" value="{{ old('email') }}"
-                                     />
+                                    id="email" type="email" name="email" value="{{ old('email') }}" />
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -170,21 +169,117 @@ License: For each use you must have a valid license purchased only from above li
                                 @enderror
                             </div>
                             <!--end::email-->
-                              <!--begin::password-->
-                              <div class="fv-row mb-7">
+                            <!--begin::password-->
+                            {{-- <div class="fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6 "
                                     for="password">{{ __('Password') }}</label>
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
-                                    id="password" type="password" name="password" value="{{ old('password') }}"
-                                     />
+                                    id="password" type="password" name="password" value="{{ old('password') }}" />
+                                    <span
+                                    class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
+                                    data-kt-password-meter-control="visibility">
+                                    <i class="bi bi-eye-slash fs-2"></i>
+                                    <i class="bi bi-eye fs-2 d-none"></i>
+                                </span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+
+                                </div> --}}
+                                <div class="fv-row mb-7">
+                                    <label class="form-label fw-bolder text-dark fs-6" for="password">{{ __('Password') }}</label>
+                                    <div class="position-relative">
+                                        <input class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
+                                            id="password" type="password" name="password" value="{{ old('password') }}" />
+                                            <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2 toggle-password" style="cursor: pointer;">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+</svg>
+                                            </span>
+                                    </div>
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const togglePassword = document.querySelector('.toggle-password');
+                                        const passwordInput = document.getElementById('password');
+                                        const showPasswordIcon = togglePassword.querySelector('.bi-eye');
+                                        const hidePasswordIcon = togglePassword.querySelector('.bi-eye-slash');
+
+                                        togglePassword.addEventListener('click', function () {
+                                            if (passwordInput.type === 'password') {
+                                                passwordInput.type = 'text';
+                                                showPasswordIcon.classList.add('d-none');
+                                                hidePasswordIcon.classList.remove('d-none');
+                                            } else {
+                                                passwordInput.type = 'password';
+                                                showPasswordIcon.classList.remove('d-none');
+                                                hidePasswordIcon.classList.add('d-none');
+                                            }
+                                        });
+                                    });
+                                </script>
+
+
                             <!--end::password-->
+                            {{-- <div class="mb-7">
+                                <label class="required fw-bold fs-6 mb-5">Role</label>
+                                @foreach ($roles as $role)
+                                    <div class="d-flex fv-row">
+                                        <div class="form-check form-check-custom form-check-solid">
+                                            <input class="form-check-input me-3 @error('name') is-invalid @enderror" name="role_id"
+                                                type="radio" value="{{ $role->id }}" id="kt_modal_update_role_option_0"
+                                                />
+                                            <br>
+                                            <div class="container_message">
+                                                @error('role_id')
+                                                    <span style="color: red">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <label class="form-check-label" for="kt_modal_update_role_option_0">
+                                                <div class="fw-bolder text-gray-800">{{ $role->name }}</div>
+                                                <div class="text-gray-600">Best for business owners and company
+                                                    administrators
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class='separator separator-dashed my-5'></div>
+                                @endforeach
+                            </div> --}}
+
+                            <div class="mb-7">
+                                <label class="required fw-bold fs-6 mb-5">Club</label>
+                                @foreach ($clubs as $club)
+                                    <div class="d-flex fv-row">
+                                        <div class="form-check form-check-custom form-check-solid">
+                                            <input class="form-check-input me-3" type="checkbox" value="{{ $club->id }}"
+                                                id="club_id_{{ $club->id }}" name="club_id[]" @error('club_id') is-invalid @enderror />
+                                            <label class="form-check-label" for="club_id_{{ $club->id }}">
+                                                <div class="fw-bolder text-gray-800">{{ $club->name }}</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class='separator separator-dashed my-5'></div>
+
+                                @endforeach
+                                <div class="container_message">
+                                    @error('club_id')
+                                        <span style="color: red">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                            </div>
+
 
 
                             <!--begin::club-->
@@ -207,8 +302,8 @@ License: For each use you must have a valid license purchased only from above li
                             <br><br>
                             <!--begin::Actions-->
                             <div class="text-center">
-                                <button type="submit"  class="btn btn-lg btn-primary" style="width: 70%;">
-                                   {{ __('Submit') }}
+                                <button type="submit" class="btn btn-lg btn-primary" style="width: 70%;">
+                                    {{ __('Submit') }}
 
                                 </button>
                             </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('club_user', function (Blueprint $table) {
             $table->foreignId('club_id');
             $table->foreignId('user_id');
-            $table->string('role');
+            // $table->string('role');
             $table->timestamps();
         });
     }

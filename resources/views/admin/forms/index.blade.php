@@ -24,26 +24,27 @@
                 <div class="card card-flush">
                     <div class="card-header mt-6">
                         <div class="card-title">
-                            <!--begin::Search-->
-                            <div class="d-flex align-items-center position-relative my-1 me-5">
-                                <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
-                                            rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                                        <path
-                                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-                                            fill="black" />
-                                    </svg>
-                                </span>
-                                <input type="text" data-kt-permissions-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-15"
-                                    placeholder="Search Clubs" />
-                            </div>
-                            <!--end::Search-->
+                         <!--begin::Search-->
+                         <form class="d-flex align-items-center position-relative my-1 me-5" method="post" action="{{ route('admin.form.search') }}" >
+                            @csrf
+                            <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
+                                        rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+                                    <path
+                                        d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                        fill="black" />
+                                </svg>
+                            </span>
+                            <input type="text" data-kt-permissions-table-filter="search" name="search"
+                                class="form-control form-control-solid w-250px ps-15" placeholder="Search demande" />
+                                <button style="display: none" type="submit"></button>
+                        </form>
+                        <!--end::Search-->
                         </div>
                         <div class="card-toolbar">
-                     
+
                         </div>
                     </div>
                     <div class="card-body pt-0">
@@ -51,12 +52,14 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0" id="kt_permissions_table">
                             <thead>
                                 <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">Name</th>
-                                    <th class="min-w-250px">Email</th>
-                                    <th class="min-w-125px">Number</th>
-                                    <th class="min-w-125px">Class</th>
-                                    <th class="min-w-125px">Password</th>
-                                    <th class="text-end min-w-100px">Actions</th>
+                                <th class="min-w-100px">Full Name</th>
+                                <th class="min-w-100px">Email</th>
+                                <th class="min-w-100px">Number</th>
+                                <th class="min-w-100px">Class</th>
+                                <th class="min-w-100px">Club</th>
+                                <th class="min-w-100px">Role</th>
+                                <th class="text-end min-w-100px">Actions</th>
+
                                 </tr>
                             </thead>
                             @foreach ($forms as $Form)
@@ -66,14 +69,80 @@
                                         <td>{{ $Form->email }}</td>
                                         <td>{{ $Form->number }}</td>
                                         <td>{{ $Form->class }}</td>
-                                        <td>{{ $Form->password }}</td>
+                                        {{-- @if ($Form->club)
+                                        <td>{{ $Form->club->name }}</td>
+                                    @else
+                                        <td>No club assigned</td>
+                                    @endif --}}
+                                    {{-- @if (count($Form->clubs) == 1)
+                                    <td>{{ $Form->club->name }}</td>
+                                @elseif (count($Form->clubs) > 1)
+                                    <td>
+                                        <div class="menu menu-column menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold" id="#kt_aside_menu" data-kt-menu="true">
+                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                                <span class="menu-link">
+                                                    <span>Dashboards</span>
+                                                    <span class="menu-arrow"></span>
+                                                </span>
+                                                <div class="menu-sub menu-sub-accordion menu-active-bg">
+                                                    @foreach ($Form->clubs as $club)
+                                                        <a class="menu-link" href="{{ route('admin.club.edit',['id' => $club->id]) }}">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span>{{ $club->name }}</span>
+                                                        </a>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                @else
+                                    <td>No clubs found</td>
+                                @endif --}}
+                                @if (count($Form->clubs) == 1)
+                                <td>{{ $Form->clubs->first()->name }}</td>
+                            @elseif (count($Form->clubs) > 1)
+                                <td>
+                                    <div class="menu menu-column menu-title-gray-600 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold"
+                                        id="#kt_aside_menu" data-kt-menu="true">
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                            <span class="menu-link">
+                                                <span>All clubs</span>
+                                                <span class="menu-arrow"></span>
+                                            </span>
+                                            <div class="menu-sub menu-sub-accordion menu-active-bg">
+                                                @foreach ($Form->clubs as $club)
+                                                    <a class="menu-link"
+                                                        href="{{ route('admin.club.edit', ['id' => $club->id]) }}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span>{{ $club->name }}</span>
+                                                    </a>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            @else
+                                <td>No clubs found</td>
+                            @endif
+
+                                    {{-- <td>{{ $Form->role ? $Form->role->name : 'Role non défini' }}</td> --}}
+                                    <td>{{ $Form->role_id }}</td>
+
+                                        {{-- <td>{{ $Form->password }}</td> --}}
 
                                         <td class="text-end">
 
                                             <!--begin::Update-->
                                             <a class="btn btn-icon btn-secondary"
-                                                href="{{ route('admin.form.edit', ['id' => $Form->id]) }}">
-                                                <i class="fas fa-solid fa-pen fs-4 ml-1"></i>
+                                                href="{{ route('admin.form.edit', ['form' => $Form->id]) }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                                                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
+                                                  </svg>
                                                 </span>
                                             </a>
                                             <!--end::Update-->
