@@ -28,7 +28,8 @@ class FormulaireRequest extends FormRequest
             'class'=>'required',
             'email'=>'required',
             'password' => 'required|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
-            'club_id'=>'required',
+            'clubs' => 'required|array|min:1', // Ensure at least one club is selected
+            'clubs.*' => 'exists:clubs,id',
 
         ];
     }

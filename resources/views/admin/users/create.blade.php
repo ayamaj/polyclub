@@ -122,7 +122,7 @@
                             symbols.</div>
                         <!--end::Hint-->
                     </div>
-                  
+
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -186,7 +186,7 @@
                             <div class="d-flex fv-row">
                                 <div class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input me-3" type="checkbox" value="{{ $club->id }}"
-                                        id="club_{{ $club->id }}" name="clubs[]"   @error('club_id') is-invalid @enderror/>
+                                        id="club_{{ $club->id }}" name="clubs[]"   @error('clubs') is-invalid @enderror/>
                                     <label class="form-check-label" for="club_{{ $club->id }}">
                                         <div class="fw-bolder text-gray-800">{{ $club->name }}</div>
                                     </label>
@@ -195,7 +195,7 @@
                             <div class='separator separator-dashed my-5'></div>
                         @endforeach
                         <div class="container_message">
-                            @error('club_id')
+                            @error('clubs')
                                 <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>

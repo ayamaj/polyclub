@@ -47,7 +47,7 @@ class welcomeController extends Controller
             'password'=> $request->password,
 
               ]);
-        return redirect()->route('home')->with('status', 'Confirm Inscription');
+        return redirect()->route('home')->with('status', 'You Successfully joined');
     }
 
     // ******

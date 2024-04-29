@@ -31,6 +31,7 @@ class UserRequest extends FormRequest
             'password' => 'required',
             'clubs' => 'required|array|min:1', // Ensure at least one club is selected
             'clubs.*' => 'exists:clubs,id',
+            
 
 
 
