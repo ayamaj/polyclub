@@ -44,6 +44,7 @@
                                 <!--end::Search-->
                             <!--end::Search-->
                         </div>
+                        @permission('create_club')
                         <div class="card-toolbar">
                             <!--begin::Button add club-->
                             <a type="button" class="btn btn-light-primary" href="{{ route('admin.club.create') }}">
@@ -60,6 +61,7 @@
                                 </span>Add Club</a>
                             <!--end::add club-->
                         </div>
+                        @endpermission
                     </div>
                     <div class="card-body pt-0">
                         <!--begin::Table-->
@@ -70,8 +72,9 @@
                                     <th class="min-w-220px">Description</th>
                                     <th class="min-w-125px">Club President</th>
                                     <th class="min-w-125px">Meeting Date</th>
-
+                                    @permission('action_club')
                                     <th class="text-end min-w-100px">Actions</th>
+                                    @endpermission
                                 </tr>
                             </thead>
                             @foreach ($clubs as $Club)
@@ -99,7 +102,7 @@
                                         <td>{{ $Club->description }}</td>
                                         <td>{{ $Club->president }}</td>
                                         <td>{{ $Club->date }}</td>
-
+                                        @permission('action_club')
                                         <td class="text-end">
                                             <!--begin::Update-->
                                             <a class="btn btn-icon btn-primary"
@@ -117,6 +120,7 @@
                                             </a>
                                             <!--end::Delete-->
                                         </td>
+                                        @endpermission
                                     </tr>
                                     <!--begin::modele delete-->
                                     <div class="modal fade" id="kt_modal_delete_user-{{ $Club->id }}" tabindex="-1"

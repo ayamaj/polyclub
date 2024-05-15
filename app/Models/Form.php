@@ -25,7 +25,7 @@ class Form extends Model
 
     public function clubs()
     {
-        return $this->belongsToMany(User::class,'club_form','club_id','form_id');
+        return $this->belongsToMany(Club::class,'club_form','club_id','form_id');
     }
 
     public function role()

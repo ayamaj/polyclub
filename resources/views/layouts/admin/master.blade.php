@@ -40,7 +40,7 @@
 <!--end::Head-->
 <!--begin::Body-->
 
-<body id="kt_body" class="dark-mode aside-enabled">
+<body id="kt_body" class="dark-mode aside-enabled ">
 
     <div class="d-flex flex-column flex-root">
         <div class="page d-flex flex-row flex-column-fluid">

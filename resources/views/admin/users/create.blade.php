@@ -82,29 +82,34 @@
                         <!--begin::Wrapper-->
                         <div class="mb-1">
                             <!--begin::Label-->
-                            <label class="required fw-bold fs-6 mb-2"
-                                for="password">{{ __('Password') }}</label>
+                            <label class="required fw-bold fs-6 mb-2" for="password">{{ __('Password') }}</label>
                             <!--end::Label-->
                             <!--begin::Input wrapper-->
                             <div class="position-relative mb-3">
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
-                                    id="password" type="password" name="password"  />
+                                    id="password" type="password" name="password" />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                                 <span
-                                    class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
-                                    data-kt-password-meter-control="visibility">
-                                    <i class="bi bi-eye-slash fs-2"></i>
-                                    <i class="bi bi-eye fs-2 d-none"></i>
-                                </span>
+                                class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2 toggle-password"
+                                style="cursor: pointer;" data-kt-password-meter-control="visibility">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                    <path
+                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                </svg>
+                            </span>
+
                             </div>
                             <!--end::Input wrapper-->
                             <!--begin::Meter-->
-                            <div class="d-flex align-items-center mb-3"
+                            {{-- <div class="d-flex align-items-center mb-3"
                                 data-kt-password-meter-control="highlight">
                                 <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
                                 </div>
@@ -113,21 +118,20 @@
                                 <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
                                 </div>
                                 <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
-                            </div>
+                            </div> --}}
                             <!--end::Meter-->
                         </div>
                         <!--end::Wrapper-->
                         <!--begin::Hint-->
-                        <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp;
-                            symbols.</div>
+                        <div class="text-muted">Use 8 or more characters .</div>
                         <!--end::Hint-->
                     </div>
 
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                   @enderror
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
 
                     {{-- <div class="form-group">
@@ -165,8 +169,7 @@
 
                                     <label class="form-check-label" for="kt_modal_update_role_option_0">
                                         <div class="fw-bolder text-gray-800">{{ $role->name }}</div>
-                                        <div class="text-gray-600">Best for business owners and company
-                                            administrators
+                                        <div class="text-gray-600">{{ $role->description }}
                                         </div>
                                     </label>
                                 </div>
@@ -186,7 +189,8 @@
                             <div class="d-flex fv-row">
                                 <div class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input me-3" type="checkbox" value="{{ $club->id }}"
-                                        id="club_{{ $club->id }}" name="clubs[]"   @error('clubs') is-invalid @enderror/>
+                                        id="club_{{ $club->id }}" name="clubs[]"
+                                        @error('clubs') is-invalid @enderror />
                                     <label class="form-check-label" for="club_{{ $club->id }}">
                                         <div class="fw-bolder text-gray-800">{{ $club->name }}</div>
                                     </label>
@@ -217,3 +221,25 @@
         </div>
     </div>
 @endsection
+{{-- eyes --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.getElementById('password');
+        const showPasswordIcon = togglePassword.querySelector('.bi-eye');
+        const hidePasswordIcon = togglePassword.querySelector('.bi-eye-slash');
+
+        togglePassword.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                showPasswordIcon.classList.add('d-none');
+                hidePasswordIcon.classList.remove('d-none');
+            } else {
+                passwordInput.type = 'password';
+                showPasswordIcon.classList.remove('d-none');
+                hidePasswordIcon.classList.add('d-none');
+            }
+        });
+    });
+</script>
+{{--  end eyes --}}

@@ -28,10 +28,10 @@ class UserRequest extends FormRequest
             'role_id'=>'required',
             'class'=>'required',
             'email'=>'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
             'clubs' => 'required|array|min:1', // Ensure at least one club is selected
             'clubs.*' => 'exists:clubs,id',
-            
+
 
 
 
@@ -44,10 +44,10 @@ class UserRequest extends FormRequest
             'name.required'=>"name is required",
             'number.required'=>"number is required",
             'role_id.required'=>"role is required",
-            'club_id.required'=>"club is required",
+            'clubs.required'=>"club is required",
             'class.required'=>"class is required",
             'email.required'=>"email is required",
-            'password.required'=>"password is required",
+            'password.required'=>"use 8 or more characters",
 
         ];
     }

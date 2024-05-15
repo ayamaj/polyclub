@@ -81,7 +81,7 @@
                             <div class="d-flex fv-row">
                                 <div class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input me-3 @error('name') is-invalid @enderror" name="role_id"
-                                        type="radio" value="{{ $role->id }}"  id="kt_modal_update_role_option_0" />
+                                        type="radio" value="{{ $role->id }}"  id="kt_modal_update_role_option_0"  @if ($role->id == $user->role_id) checked  @endif />
                                     <br>
                                     <div class="container_message">
                                         @error('role_id')

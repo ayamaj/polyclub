@@ -4,11 +4,13 @@
 @section('title', 'liste des clubs')
 
 @section('content')
-<div class="row">
+<div class="container-fluid">
+
+
+<div class="row container-fluid">
 
     <!-- Earnings (Monthly) Card Example -->
     <div class="row g-4 py-1 row-cols-1 row-cols-lg-3 justify-content-center">
-    @foreach ($events as $Event)
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -18,7 +20,7 @@
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 fs-3">
                           Events </div></div>
                             <div class="text-center">
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 ">{{ $Event->count() }}</div></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 ">{{ $events->count() }}</div></div>
                     </div>
 
                     <div class="col-auto">
@@ -31,9 +33,7 @@
             </div>
         </div>
     </div>
-    @endforeach
 
-    @foreach ($clubs as $Club)
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
 
@@ -46,7 +46,7 @@
                     </div>
                     <div class="text-center">
                         <div class="row no-gutters align-items-center">
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $Club->count() }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $clubs->count() }}</div>
                         </div> </div>
                     </div>
                     <div class="col-auto">
@@ -58,7 +58,6 @@
             </div>
         </div>
     </div>
-    @endforeach
 
     <!-- Pending Requests Card Example -->
     {{-- <div class="col-xl-3 col-md-6 mb-4">
@@ -79,5 +78,6 @@
     </div> --}}
 </div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 @endsection

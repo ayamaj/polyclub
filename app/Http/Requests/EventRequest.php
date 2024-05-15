@@ -28,7 +28,8 @@ class EventRequest extends FormRequest
             'image'=>'required',
             'date'=>'required',
             'duration'=>'required',
-            'place'=>'required'
+            'place'=>'required',
+            'image_club'=>'required',
         ];
     }
 
@@ -40,7 +41,8 @@ class EventRequest extends FormRequest
             'image.required'=>"you didn't fill this field (image)",
             'date.required'=>"you didn't fill this field (date)",
             'duration.required'=>"you didn't fill this field (duration)",
-            'place.required'=>"you didn't fill this field (place)"
+            'place.required'=>"you didn't fill this field (place)",
+            'image_club.required'=>"you didn't fill this field (image_club)",
         ];
     }
 }

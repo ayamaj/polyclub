@@ -101,6 +101,19 @@
                     </div>
                     <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                     <!--end::Image input-->
+                    <!--begin::logo club input-->
+                         <div class="form-group">
+                            <label for="image_club" class="required fw-bold fs-6 mb-2">logo club</label>
+                            <input type="file" style="border: none" id="image_club" name="image_club" class="@error('image_club') is-invalid @enderror">
+                            <br>
+                            <div class="container_message">
+                                @error('image_club')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                   <!--end::logo club input-->
 
                     <!--begin::submit-->
                     <div class="text-center pt-15">

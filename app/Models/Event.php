@@ -12,6 +12,7 @@ class Event extends Model
         'titre',
         'description',
         'image',
+        'image_club',
         'date',
         'duration',
         'place',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\ClubController;
 use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\EventController;
@@ -7,8 +8,10 @@ use App\Http\Controllers\admin\FormController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\ResourceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -141,6 +144,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/store', [FormController::class, 'store'])->name('store');
     Route::get('/show/{id}', [FormController::class, 'show'])->name('show');
      });
+
+     Route::prefix('resources')->as('resource.')->group(function () {
+        Route::post('/delete/{id}', [ResourceController::class, 'delete'])->name('delete');
+        Route::get('/edit/{id}', [ResourceController::class, 'edit'])->name('edit');
+        Route::post('/update', [ResourceController::class, 'update'])->name('update');
+        Route::post('/search', [ResourceController::class, 'search'])->name('search');
+        Route::get('/', [ResourceController::class, 'index'])->name('index');
+        Route::get('/create', [ResourceController::class, 'create'])->name('create');
+        Route::post('/store', [ResourceController::class, 'store'])->name('store');
+
+  });
 
 
 

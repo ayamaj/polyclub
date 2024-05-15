@@ -67,10 +67,10 @@ Route::post('/inscription/store', [WelcomeController::class, 'store'])->name('in
 
 // ********
 // club Routes
- Route::get('/one_club', [WelcomeController::class, 'one_club'])->name('one_club');
+ Route::get('/one_club/{club}', [WelcomeController::class, 'one_club'])->name('one_club');
 
 // event Routes
- Route::get('/one_event', [WelcomeController::class, 'one_event'])->name('one_event');
+ Route::get('/one_event/{event}', [WelcomeController::class, 'one_event'])->name('one_event');
 
 
 

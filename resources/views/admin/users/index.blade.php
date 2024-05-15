@@ -31,16 +31,18 @@
                     <!--begin::Add user-->
                     <div class="card-toolbar">
                         <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                            <a type="button" class="btn btn-primary" href="{{ route('admin.user.create') }}">
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                            rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
-                                            fill="black" />
-                                    </svg>
-                                </span>Add User</a>
+                            @permission('create_user')
+                                <a type="button" class="btn btn-primary" href="{{ route('admin.user.create') }}">
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+                                                rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                                fill="black" />
+                                        </svg>
+                                    </span>Add User</a>
+                            @endpermission
                         </div>
                     </div>
                     <!--end::Add user-->
@@ -57,8 +59,9 @@
                                 <th class="min-w-100px">Class</th>
                                 <th class="min-w-100px">Club</th>
                                 <th class="min-w-100px">Role</th>
-
+                                @permission('action_user')
                                 <th class="text-end min-w-100px">Actions</th>
+                                @endpermission
                             </tr>
                         </thead>
                         @foreach ($users as $User)
@@ -162,6 +165,7 @@
                                     </td>
 
                                     <!--begin::action-->
+                                    @permission('action_user')
                                     <td class="text-end">
                                         <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
                                             data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -186,6 +190,7 @@
                                             </div>
                                         </div>
                                     </td>
+                                    @endpermission
                                 </tr>
                             </tbody>
                             <!--begin::model delete-->
@@ -261,6 +266,7 @@
                             <!--end::Modal delete-->
                         @endforeach
                     </table>
+                    {{ $users->links('vendor.pagination.bootstrap-5') }}
                     <!--end::Table-->
                 </div>
             </div>

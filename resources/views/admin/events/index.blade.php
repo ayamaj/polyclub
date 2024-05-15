@@ -44,6 +44,7 @@
                             <!--end::Search-->
                             <!--end::Search-->
                         </div>
+                        @permission('create_event')
                         <div class="card-toolbar">
                             <!--begin::Button aadd event -->
                             <a type="button" class="btn btn-light-primary" href="{{ route('admin.event.create') }}">
@@ -60,6 +61,7 @@
                                 </span> Add Event</a>
                             <!--end::Button Add event-->
                         </div>
+                        @endpermission
                     </div>
                     <div class="card-body pt-0">
                         <!--begin::Table-->
@@ -71,8 +73,9 @@
                                     <th class="min-w-220px">Description</th>
                                     <th class="min-w-125px">Date</th>
                                     <th class="min-w-125px">Duration</th>
-
+                                    @permission('action_event')
                                     <th class="text-end min-w-100px">Actions</th>
+                                    @endpermission
                                 </tr>
                             </thead>
                             @foreach ($events as $Event)
@@ -100,7 +103,7 @@
                                         <td>{{ $Event->description }}</td>
                                         <td>{{ $Event->date }}</td>
                                         <td>{{ $Event->duration }}</td>
-
+                                        @permission('action_event')
                                         <td class="text-end">
                                             <!--begin::Update-->
                                             <a class="btn btn-icon btn-primary"
@@ -118,6 +121,7 @@
                                             </a>
                                             <!--end::Delete-->
                                         </td>
+                                        @endpermission
                                     </tr>
                                     <!--begin::model delete* -->
                                     <div class="modal fade" id="kt_modal_delete_user-{{ $Event->id }}" tabindex="-1"

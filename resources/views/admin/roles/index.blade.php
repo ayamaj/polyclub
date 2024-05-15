@@ -61,14 +61,14 @@
                                     <tr>
                                         <td>{{ $Role->name }}</td>
                                         <td>{{ $Role->description }}</td>
-                                        <td>
+                                        {{-- <td>
                                             @foreach ($Role->permissions as $permission)
                                                 {{ $permission->name }}
                                                 @if (!$loop->last)
                                                     <br> <!-- Ajoute un saut de ligne après chaque permission, sauf la dernière -->
                                                 @endif
                                             @endforeach
-                                        </td>
+                                        </td> --}}
                                         <td></td>
                                         <!--begin::action-->
                                         <td class="text-end">

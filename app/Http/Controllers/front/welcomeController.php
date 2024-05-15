@@ -12,10 +12,12 @@ class welcomeController extends Controller
 {
     public function home()
     {
-        $clubs = Club::all();
-        $events = Event::all();
-        return view('welcome', compact('clubs','events'));
+        $events_carousel = Event::all();
+        $clubs = Club::latest()->take(3)->get();
+        $events = Event::latest()->take(2)->get();
+        return view('welcome', compact('clubs', 'events','events_carousel'));
     }
+
     //events method
     public function clubs()
     {
@@ -37,31 +39,31 @@ class welcomeController extends Controller
     }
     public function store(FormulaireRequest $request)
     {
-        // dd($request->all());
-        Form::create([
+        //  dd($request->all());
+        $form = Form::create([
             'name'=> $request->name,
             'number'=> $request->number,
             // 'role_id'=> $request->role_id,
             'class'=> $request->class,
             'email'=> $request->email,
             'password'=> $request->password,
-
               ]);
+              $form->clubs()->sync($request->club_id);
+
         return redirect()->route('home')->with('status', 'You Successfully joined');
     }
 
     // ******
 
        //events method
-       public function one_club()
+       public function one_club(Club $club)
        {
-           $clubs = Club::all();
-           return view('one_club', compact('clubs'));
+           return view('one_club', compact('club'));
        }
        //clubs events
-       public function one_event()
+       public function one_event(Event $event)
        {
-           $events = Event::all();
-           return view('one_event', compact('events'));
+        //    $events = Event::all();
+           return view('one_event', compact('event'));
        }
 }

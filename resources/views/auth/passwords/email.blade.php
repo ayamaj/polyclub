@@ -53,31 +53,28 @@ License: For each use you must have a valid license purchased only from above li
 			<!--begin::Authentication - Password reset -->
 			<div class="d-flex flex-column flex-lg-row flex-column-fluid">
 				<!--begin::Aside-->
-				<div class="d-flex flex-column flex-lg-row-auto bg-primary w-xl-600px positon-xl-relative">
-					<!--begin::Wrapper-->
-					<div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
-						<!--begin::Header-->
-						<div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-							<!--begin::Logo-->
-							<a href="../../index.html" class="py-9 pt-lg-20">
-								<img alt="Logo" src="../../assets/media/logos/default.svg" class="h-40px" />
-							</a>
-							<!--end::Logo-->
-							<!--begin::Title-->
-							<h1 class="fw-bolder text-white fs-2qx pb-5 pb-md-10">Welcome to Good</h1>
-							<!--end::Title-->
-							<!--begin::Description-->
-							<p class="fw-bold fs-2 text-white">Plan your blog post by choosing a topic creating
-							<br />an outline and checking facts</p>
-							<!--end::Description-->
-						</div>
-						<!--end::Header-->
-						<!--begin::Illustration-->
-						<div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px" style="background-image: url(../../assets/media/illustrations/sketchy-1/2.png)"></div>
-						<!--end::Illustration-->
-					</div>
-					<!--end::Wrapper-->
-				</div>
+                <div class="d-flex flex-column flex-lg-row-auto bg-primary w-xl-600px positon-xl-relative">
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px">
+                        <!--begin::Header-->
+                        <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
+                            <!--begin::Logo-->
+                            <div class="container_logo">
+                                <a href="../../index.html">
+                                    <img alt="Logo" src= "{{ asset('design/assets/media/image/logo.svg') }}"
+                                        class="logo" />
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Illustration-->
+
+                        <img alt="image" src= "{{ asset('design/assets/media/image/img1.svg') }}" class="img1" />
+
+                        <!--end::Illustration-->
+                    </div>
+                    <!--end::Wrapper-->
+                </div>
 				<!--begin::Aside-->
 				<!--begin::Body-->
 				<div class="d-flex flex-column flex-lg-row-fluid py-10">

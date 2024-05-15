@@ -15,7 +15,7 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
-    
+
     public function create()
     {
         return view('admin.events.create');
@@ -31,11 +31,14 @@ class EventController extends Controller
     {
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
+        $avatarName2 = '/uploads/' . $request->titre . '.' . $request->image_club->getClientOriginalExtension();
+        $request->image_club->move(public_path('uploads'), $avatarName2, 60);
 
         Event::create([
             'titre' => $request->titre,
             'description' => $request->description,
             'image' => $avatarName,
+            'image_club' => $avatarName2,
             'date' => $request->date,
             'duration' => $request->duration,
             'place' => $request->place,
@@ -56,6 +59,7 @@ class EventController extends Controller
             'titre' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'image_club' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'date' => 'required|string',
             'duration' => 'required|string',
             'place' => 'required|string',
@@ -63,11 +67,14 @@ class EventController extends Controller
 
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
+        $avatarName2 = '/uploads/' . $request->titre . '.' . $request->image_club->getClientOriginalExtension();
+        $request->image_club->move(public_path('uploads'), $avatarName2, 60);
 
         Event::find($request->id)->update([
             'titre' => $request->titre,
             'description' => $request->description,
             'image' => $avatarName,
+            'image_club' => $avatarName2,
             'date' => $request->date,
             'duration' => $request->duration,
             'place' => $request->place,

@@ -47,15 +47,23 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-     public function role()
-     {
-         return $this->belongsTo(Role::class,"role_id");
-     }
+    public function role()
+    {
+        return $this->belongsTo(Role::class, "role_id");
+    }
 
     public function clubs()
     {
-        return $this->belongsToMany(Club::class,'club_user')->withPivot('user_id','club_id');
+        return $this->belongsToMany(Club::class, 'club_user')->withPivot('user_id', 'club_id');
     }
 
-
+    public function hasPermission($expression)
+    {
+        foreach ($this->role->permissions as $permission) {
+            if ($permission->name == $expression) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

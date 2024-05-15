@@ -14,7 +14,8 @@ class FormController extends Controller
 {
     public function index()
     {
-         $forms = Form::with('role','clubs')->get();
+
+         $forms = Form::latest()->paginate(15);
          return view('admin.forms.index', compact('forms'));
     }
 
@@ -40,7 +41,7 @@ class FormController extends Controller
             'clubs.*' => 'exists:clubs,id',
             'class' => 'required|string',
             'email' => 'required|string',
-            'password' => 'required|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
+            'password' => 'required|min:8'
 
         ]);
         $user = User::create([

@@ -81,9 +81,11 @@
                     </a>
                 </div>
                 {{-- end User --}}
+
                 {{-- Role --}}
+                @permission('roles')
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.role.index') }}">
+                    <a class="menu-link" href="{{ route('admin.role.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -101,8 +103,11 @@
                     </a>
                     </a>
                 </div>
+             @endpermission
                 {{-- end Role --}}
+
                 {{-- permission --}}
+             @permission('permissions')
                 <div class="menu-item">
                     <a class="menu-link " href="{{ route('admin.permission.index') }}">
                         <span class="menu-icon">
@@ -122,6 +127,7 @@
                     </a>
                     </a>
                 </div>
+                @endpermission
                 {{-- end permission --}}
                 {{-- Club --}}
                 <div class="menu-item">
@@ -187,10 +193,31 @@
                     </a>
                 </div>
                 {{-- end demande --}}
-
+{{-- ****************** --}}
+     {{--Resource --}}
+     <div class="menu-item">
+        <a class="menu-link " href="{{ route('admin.form.index') }}">
+            <span class="menu-icon">
+                <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                <span class="svg-icon svg-icon-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none">
+                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
+                            fill="black" />
+                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                            fill="black" />
+                    </svg>
+                </span>
+                <!--end::Svg Icon-->
+            </span>
+            <span class="menu-title">Resource</span>
+        </a>
+        </a>
+    </div>
+    {{-- end resource --}}
                  {{--Request resources --}}
                  <div class="menu-item">
-                    {{-- <a class="menu-link " href="{{ route('admin.form.index') }}"> --}}
+                    <a class="menu-link " href="{{ route('admin.resource.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -204,33 +231,39 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Request resources</span>
+                        <span class="menu-title">Request resources </span>
                     </a>
                     </a>
                 </div>
                 {{-- end Request resources --}}
 
-                   {{--Request president --}}
-                   <div class="menu-item">
-                    {{-- <a class="menu-link " href="{{ route('admin.form.index') }}"> --}}
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                            <span class="svg-icon svg-icon-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                        fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                        fill="black" />
-                                </svg>
+
+
+                      {{--message resource --}}
+                      @permission('permissions')
+                      <div class="menu-item">
+                        <a class="menu-link " href="{{ route('admin.resource.create') }}">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                                <span class="svg-icon svg-icon-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
+                                            fill="black" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                            fill="black" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
                             </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">Request president</span>
-                    </a>
-                    </a>
-                </div>
-                {{-- end Request president --}}
+                            <span class="menu-title">Message resource</span>
+                        </a>
+                        </a>
+                    </div>
+                    @endpermission
+                    {{-- message resource --}}
+
+                {{-- ****************** --}}
             </div>
         </div>
     </div>
