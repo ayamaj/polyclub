@@ -65,7 +65,7 @@
                                         <img src="{{ asset($event->image_club) }}" alt="HTML5 Icon" style="width:50px;height:50px;border-radius: 50%;">
                                     </div>
 
-                                    <a class="h4" href="">{{ $event->titre }}</a>
+                                    <a class="h4" href="{{ route('one_event',['event' => $event->id]) }}">{{ $event->titre }}</a>
 
                                 </div>
                                 <a  href="{{ route('one_event',['event' => $event->id]) }}"style="font-size: 16px;color: rgb(62, 62, 128);">

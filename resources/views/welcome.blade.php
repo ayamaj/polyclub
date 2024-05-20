@@ -8,7 +8,7 @@
         <div class="col-md-8 d-flex justify-content-center">
             <div>
                 @if (session('status'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success" id="flash-message">
                         {{ session('status') }}
                     </div>
                 @endif
@@ -172,7 +172,18 @@
             </div>
         </section>
 
-
-
-
 @endsection
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var flashMessage = document.getElementById('flash-message');
+            if (flashMessage) {
+                flashMessage.style.transition = 'opacity 0.3s ease-out';
+                flashMessage.style.opacity = '0';
+                setTimeout(function() {
+                    flashMessage.remove();
+                }, 300); // Temps pour finir la transition
+            }
+        }, 3000); // 5 secondes
+    });
+</script>

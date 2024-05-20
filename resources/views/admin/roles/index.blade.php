@@ -5,14 +5,14 @@
 @section('content')
     @if (session('status'))
         <div class="d-flex justify-content-center">
-            <div class="alert alert-primary">
+            <div class="alert alert-primary" id="flash-message">
                 {{ session('status') }}
             </div>
         </div>
     @endif
     <ul>
         @foreach ($errors->all() as $error)
-            <li class="alert alert-danger">
+            <li class="alert alert-danger" id="flash-message">
                 {{ $error }}
             </li>
         @endforeach

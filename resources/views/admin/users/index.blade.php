@@ -3,6 +3,21 @@
 @section('title', 'liste des etudiants')
 
 @section('content')
+
+@if (session('status'))
+<div class="d-flex justify-content-center">
+    <div class="alert alert-primary" id="flash-message">
+        {{ session('status') }}
+    </div>
+</div>
+@endif
+<ul>
+@foreach ($errors->all() as $error)
+    <li class="alert alert-danger" id="flash-message">
+        {{ $error }}
+    </li>
+@endforeach
+</ul>
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <div id="kt_content_container" class="container-fluid">
             <div class="card">

@@ -87,6 +87,7 @@
     <script src= "{{ asset('design/assets/js/custom/utilities/modals/create-project/main.js')}}"></script>
     <script src= "{{ asset('design/assets/js/custom/utilities/modals/upgrade-plan.js')}}"></script>
     <script src= "{{ asset('design/assets/js/custom/utilities/modals/users-search.js')}}"></script>
+    <script src= "{{ asset('design/assets/js/moi.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->

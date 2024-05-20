@@ -93,8 +93,8 @@ License: For each use you must have a valid license purchased only from above li
 									<h1 class="text-dark mb-3">SIGN IN TO YOUR ACCOUNT</h1>
 									<!--end::Title-->
 									<!--begin::Link-->
-									<div class="text-gray-400 fw-bold fs-4">New Here?
-									<a href="{{ route('register') }}" class="link-primary fw-bolder" type="button">Create an Account</a></div>
+									{{-- <div class="text-gray-400 fw-bold fs-4">New Here?
+									<a href="{{ route('register') }}" class="link-primary fw-bolder" type="button">Create an Account</a></div> --}}
 									<!--end::Link-->
 								</div>
 								<!--begin::Heading-->

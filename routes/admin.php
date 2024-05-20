@@ -151,8 +151,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', [ResourceController::class, 'update'])->name('update');
         Route::post('/search', [ResourceController::class, 'search'])->name('search');
         Route::get('/', [ResourceController::class, 'index'])->name('index');
+        Route::get('/index2', [ResourceController::class, 'index2'])->name('index2');
         Route::get('/create', [ResourceController::class, 'create'])->name('create');
         Route::post('/store', [ResourceController::class, 'store'])->name('store');
+        Route::post('/update-status_available/{id}', [ResourceController::class, 'updateStatus_available'])->name('updateStatus_available');
+        Route::post('/update-status_is_not_available/{id}', [ResourceController::class, 'updateStatus_is_not_available'])->name('updateStatus_is_not_available');
 
   });
 

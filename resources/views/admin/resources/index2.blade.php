@@ -35,9 +35,9 @@
                             <thead>
                                 <!--begin::Table 1-->
                                 <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px"> Message Request resource </th>
+                                    <th class="min-w-125px"> all resource </th>
 
-                                    <th class="min-w-125px"></th>
+                                   <th class="min-w-125px"></th>
                                     <th class="text-end min-w-100px">Actions</th>
                                 </tr>
                                 <!--end::Table 1-->
@@ -56,8 +56,9 @@
                                             @endforeach
                                         </td> --}}
                                         <td></td>
+
                                         <!--begin::action-->
-                                        <td class="text-end">
+                                        {{-- <td class="text-end">
                                             <!--begin::Update-->
                                             <a class="btn btn-icon btn-primary"
                                                 href="{{ route('admin.resource.edit', ['id' => $Resource->id]) }}">
@@ -75,11 +76,12 @@
                                                 </span>
                                             </a>
                                             <!--end::Delete-->
-                                        </td>
+                                        </td> --}}
+                                        <td class="text-end">{{ $Resource->status }}</td>
                                         <!--end::Action=-->
                                     </tr>
                                     <!--begin::model delete-->
-                                    <div class="modal fade" id="kt_modal_delete_user-{{ $Resource->id }}" tabindex="-1"
+                                    {{-- <div class="modal fade" id="kt_modal_delete_user-{{ $Resource->id }}" tabindex="-1"
                                         aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered mw-400px">
                                             <div class="modal-content">
@@ -153,7 +155,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <!--end::model delete-->
                                 </tbody>
                             @endforeach

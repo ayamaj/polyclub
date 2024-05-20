@@ -196,7 +196,7 @@
 {{-- ****************** --}}
      {{--Resource --}}
      <div class="menu-item">
-        <a class="menu-link " href="{{ route('admin.form.index') }}">
+        <a class="menu-link " href="{{ route('admin.resource.index2') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                 <span class="svg-icon svg-icon-5">

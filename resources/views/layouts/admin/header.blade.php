@@ -15,7 +15,7 @@
             <div class="d-flex align-items-center pt-3 pt-sm-0">
                 <div class="d-flex">
                     <!--begin::Chat-->
-                    <div class="d-flex align-items-center me-4">
+                    {{-- <div class="d-flex align-items-center me-4">
                         <a href="#" id="kt_drawer_chat_toggle"
                             class="btn btn-icon btn-active-light btn-outline btn-outline-default btn-icon-gray-700 btn-active-icon-primary"
                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
@@ -31,7 +31,7 @@
                                 </svg>
                             </span>
                         </a>
-                    </div>
+                    </div> --}}
                     <!--end::Chat-->
                 </div>
             </div>

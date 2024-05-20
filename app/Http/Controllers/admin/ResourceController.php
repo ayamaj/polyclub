@@ -15,6 +15,11 @@ class ResourceController extends Controller
          $resources = resource::all();
          return view('admin.resources.index', compact('resources'));
     }
+    public function index2()
+    {
+         $resources = resource::all();
+         return view('admin.resources.index2', compact('resources'));
+    }
     public function create()
     {
         $users = User::all();
@@ -27,7 +32,8 @@ class ResourceController extends Controller
 {
     $users = User::all();
     $clubs = Club::all();
-    return view('admin.resources.edit', compact('resource','users','clubs'));
+    $resources = resource::all();
+    return view('admin.resources.index2', compact('resources','users','clubs'));
 }
 
     public function delete($id){
@@ -35,30 +41,30 @@ class ResourceController extends Controller
         return redirect()->route('admin.resource.index')->with('status','the person has been deleted ');
     }
 
-    public function update(Request $request)
-    {
-        // dd($request->all());
-        $request->validate([
-            'message' => 'required|string',
-            'status'=> 'required|string',
-            'user_id' => 'required|string',
-            'club_id' => 'required|string',
+    // public function update(Request $request)
+    // {
+    //     // dd($request->all());
+    //     $request->validate([
+    //         'message' => 'required|string',
+    //         'status'=> 'required|string',
+    //         'user_id' => 'required|string',
+    //         'club_id' => 'required|string',
 
-        ]);
-        $resource = Resource::create([
-            'message'=> $request->message,
-            'status'=> $request->status,
-            'user_id'=> $request->user_id,
-            'club_id'=> $request->club_id,
+    //     ]);
+    //     $resource = Resource::create([
+    //         'message'=> $request->message,
+    //         'status'=> $request->status,
+    //         'user_id'=> $request->user_id,
+    //         'club_id'=> $request->club_id,
 
-        ]);
-        $resource->clubs()->sync($request->clubs);
-        //delete the request account
+    //     ]);
+    //     $resource->clubs()->sync($request->clubs);
+    //     //delete the request account
 
-        Resource::find($request->id)->delete();
+    //     Resource::find($request->id)->delete();
 
-        return redirect()->route('admin.user.index')->with('status', 'the person contact details have been modified');
-    }
+    //     return redirect()->route('admin.resource.index2')->with('status', 'the person contact details have been modified');
+    // }
 
     // public function search(Request $request)
     // {
@@ -76,6 +82,25 @@ class ResourceController extends Controller
             // 'club_id'=> $request->club_id,
 
         ]);
-            return redirect()->route('admin.resource.index')->with('status', 'le permission a bien été ajouté avec succès');
+            return redirect()->route('admin.resource.index2')->with('status', 'le permission a bien été ajouté avec succès');
        }
+
+       public function updateStatus_available($id)
+{
+    $resource = Resource::find($id);
+    $resource->status = 'available';
+    $resource->save();
+    return redirect()->route('admin.resource.edit', ['id' => $id]);
+}
+
+public function updateStatus_is_not_available($id)
+{
+    $resource = Resource::find($id);
+    $resource->status = 'is not available ';
+    $resource->save();
+    return redirect()->route('admin.resource.edit', ['id' => $id]);
+}
+
+
+
 }
