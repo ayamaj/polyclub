@@ -27,5 +27,10 @@ class Club extends Model
         return $this->belongsToMany(Form::class,'club_form','form_id','club_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 
 }

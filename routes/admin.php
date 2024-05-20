@@ -115,6 +115,7 @@ Route::middleware('auth')->group(function () {
       Route::post('/search', [ClubController::class, 'search'])->name('search');
       Route::get('/create', [ClubController::class, 'create'])->name('create');
       Route::post('/store', [ClubController::class, 'store'])->name('store');
+
 });
 // End Clubs Routes
 

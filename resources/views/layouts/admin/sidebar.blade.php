@@ -83,7 +83,7 @@
                 {{-- end User --}}
 
                 {{-- Role --}}
-                @permission('roles')
+                {{-- @permission('roles') --}}
                 <div class="menu-item">
                     <a class="menu-link" href="{{ route('admin.role.index') }}">
                         <span class="menu-icon">
@@ -103,11 +103,11 @@
                     </a>
                     </a>
                 </div>
-             @endpermission
+             {{-- @endpermission --}}
                 {{-- end Role --}}
 
                 {{-- permission --}}
-             @permission('permissions')
+             {{-- @permission('permissions') --}}
                 <div class="menu-item">
                     <a class="menu-link " href="{{ route('admin.permission.index') }}">
                         <span class="menu-icon">
@@ -127,7 +127,7 @@
                     </a>
                     </a>
                 </div>
-                @endpermission
+                {{-- @endpermission --}}
                 {{-- end permission --}}
                 {{-- Club --}}
                 <div class="menu-item">

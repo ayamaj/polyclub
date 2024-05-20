@@ -27,6 +27,8 @@ class ClubController extends Controller
         return view('admin.clubs.edit', compact('club'));
     }
 
+    
+
     public function store(ClubRequest $request)
     {
          //  dd($request->all());
@@ -97,6 +99,9 @@ class ClubController extends Controller
         $clubs = Club::where('name', 'like', '%' . $request->search. '%')->get();
          return view('admin.clubs.index', compact('clubs'));
     }
+
+
+
 
 
 }

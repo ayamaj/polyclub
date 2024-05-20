@@ -3,17 +3,30 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\ResourceRequest;
+use App\Models\Club;
 use App\Models\Resource;
 use App\Models\User;
-use App\Models\Club;
-use App\Http\Requests\ResourceRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+
 class ResourceController extends Controller
 {
+
     public function index()
     {
-         $resources = resource::all();
-         return view('admin.resources.index', compact('resources'));
+        // Get resources created more than a month ago
+        $resourcesToDelete = Resource::where('created_at', '<', Carbon::now()->subMonth())->get();
+
+        // Delete the resources older than a month
+        foreach ($resourcesToDelete as $resource) {
+            $resource->delete();
+        }
+
+        // Get all resources (after deleting old ones)
+        $resources = Resource::where('status' ,'In waiting state')->get();
+
+        return view('admin.resources.index', compact('resources'));
     }
     public function index2()
     {
@@ -90,6 +103,7 @@ class ResourceController extends Controller
     $resource = Resource::find($id);
     $resource->status = 'available';
     $resource->save();
+
     return redirect()->route('admin.resource.edit', ['id' => $id]);
 }
 

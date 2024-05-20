@@ -103,6 +103,7 @@
                                         <td>{{ $Club->description }}</td>
                                         <td>{{ $Club->president }}</td>
                                         <td>{{ $Club->date }}</td>
+                                        
                                         @permission('action_club')
                                         <td class="text-end">
                                             <!--begin::Update-->

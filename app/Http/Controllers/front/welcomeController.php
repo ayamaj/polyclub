@@ -66,4 +66,18 @@ class welcomeController extends Controller
         //    $events = Event::all();
            return view('one_event', compact('event'));
        }
+//        public function show($id)
+// {
+//     // Assuming $id is the club ID
+//     return view('one_club', ['club_id' => $id]);
+// }
+
+public function edit($id)
+{
+    $club = Club::findOrFail($id);
+    return view('one_club', ['club' => $club, 'club_id' => $id]);
+}
+
+
+
 }
