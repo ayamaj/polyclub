@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         // $users = User::all();
         // return view('admin.users.index', compact('users'));
-         $users = User::latest()->paginate(25);
+         $users = User::latest()->paginate(5);
          return view('admin.users.index', compact('users'));
     }
     public function create()
@@ -98,7 +98,7 @@ public function store(UserRequest $request)
     {
         // $users = User::all();
         // return view('admin.users.index', compact('users'));
-        $users = User::where('name', 'like', '%' . $request->search. '%')->get();
+        $users = User::where('name', 'like', '%' . $request->search. '%')->paginate(5);
          return view('admin.users.index', compact('users'));
     }
 }

@@ -62,7 +62,7 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
 							<!--begin::Logo-->
                             <div class="container_logo">
-							<a href="../../index.html" >
+							<a href="{{ route('home') }}" >
 								<img alt="Logo" src= "{{ asset('design/assets/media/image/logo.svg') }}" class="logo" />
 							</a>
                             </div>
@@ -175,8 +175,7 @@ License: For each use you must have a valid license purchased only from above li
 		</div>
 		<!--end::Root-->
 		<!--end::Main-->
-		<!--begin::Javascript-->
-		<script>var hostUrl = "{{ asset('design/assets/index.html') }}" ;</script>
+
 		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<script src= "{{ asset('design/assets/plugins/global/plugins.bundle.js') }}" ></script>
 		<script src= "{{ asset('design/assets/js/scripts.bundle.js') }}" ></script>

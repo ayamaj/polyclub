@@ -25,6 +25,9 @@
                 </div>
             </div>
         </div>
+        @foreach ($club->users as $membre)
+<p>{{ $membre->name }}</p> <p>{{ $membre->role->name }}</p>
+        @endforeach
 
 
         {{-- <livewire:comment-section/>  --}}

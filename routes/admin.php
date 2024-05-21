@@ -73,7 +73,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('edit');
         Route::post('/update', [UserController::class, 'update'])->name('update');
         Route::get('/', [UserController::class, 'index'])->name('index');
-        Route::post('/search', [UserController::class, 'search'])->name('search');
+        Route::match(['get', 'post'], '/search', [UserController::class, 'search'])->name('search');
+
         Route::get('/create', [UserController::class, 'create'])->name('create');
         Route::post('/store', [UserController::class, 'store'])->name('store');
 

@@ -31,7 +31,7 @@ class EventController extends Controller
     {
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
-        $avatarName2 = '/uploads/' . $request->titre . '.' . $request->image_club->getClientOriginalExtension();
+        $avatarName2 = '/uploads/' . $request->titre .'2'. '.' . $request->image_club->getClientOriginalExtension();
         $request->image_club->move(public_path('uploads'), $avatarName2, 60);
 
         Event::create([
@@ -67,7 +67,7 @@ class EventController extends Controller
 
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
-        $avatarName2 = '/uploads/' . $request->titre . '.' . $request->image_club->getClientOriginalExtension();
+        $avatarName2 = '/uploads/' . $request->titre  .'2'. '.' . $request->image_club->getClientOriginalExtension();
         $request->image_club->move(public_path('uploads'), $avatarName2, 60);
 
         Event::find($request->id)->update([

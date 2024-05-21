@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +15,9 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
+
         \App\Models\Role::factory()->create([
+
             'name' => 'Admin',
             'description' => 'Super Admin',
          ]);
@@ -25,5 +29,7 @@ class RoleSeeder extends Seeder
              'name' => 'member',
              'description' => 'member club',
           ]);
+          Role::where('name' , 'Admin')->first()->permissions()->sync(Permission::all());
+
     }
 }

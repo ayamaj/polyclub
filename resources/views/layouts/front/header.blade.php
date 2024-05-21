@@ -26,7 +26,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
+        <a href="{{ route('home') }}" class="navbar-brand p-0">
             <img src="{{ asset('dashboard/img/logoo.svg') }}"  style='width:150px'></img>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -40,6 +40,12 @@
                 <a href="{{ route('inscription') }}" class="nav-item nav-link">Inscription</a>
                 <a href="{{ route('clubs') }}" class="nav-item nav-link">Clubs</a>
                 <a href="{{ route('events') }}" class="nav-item nav-link">Events</a>
+                @auth
+                <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
+            @endauth
+
 
             </div>
         </div>

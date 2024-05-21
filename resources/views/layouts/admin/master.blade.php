@@ -32,6 +32,10 @@
     <link href= "{{ asset('design/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
     <link href= "{{ asset('design/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+{{-- ********* --}}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
+    {{-- ******* --}}
     <!--end::Global Stylesheets Bundle-->
     <!--Begin::Google Tag Manager -->
 
@@ -58,9 +62,7 @@
     <!--end::Modal - Invite Friend-->
     <!--end::Modals-->
     <!--begin::Javascript-->
-    <script>
-        var hostUrl = "{{ asset('design/assets/index.html') }} ";
-    </script>
+
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src= "{{ asset('design/assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src= "{{ asset('design/assets/js/scripts.bundle.js') }} "></script>

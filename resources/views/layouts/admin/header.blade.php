@@ -1,7 +1,7 @@
 <div id="kt_header" style="" class="header align-items-stretch">
     <div class="header-brand">
         <!--begin::Logo-->
-        <a href="../../index.html">
+        <a href="{{ route('home') }}">
             <img alt="Logo" src="{{ asset('design/assets/media/image/logo.svg') }}" class="h-50px" />
         </a>
         <!--end::Logo-->
