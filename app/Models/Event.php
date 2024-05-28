@@ -16,6 +16,6 @@ class Event extends Model
         'date',
         'duration',
         'place',
-
+        'link',
     ];
 }

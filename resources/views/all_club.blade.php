@@ -1,11 +1,9 @@
-
 @extends('layouts.front.master')
 
 @section('title', 'liste des etudiants')
 
 @section('content')
-
-    <!-- Blog Start -->
+    {{-- section all club --}}
     <section id="event">
     <div class="container-fluid py-4 px-2">
         <div class="text-center mx-auto mb-4" style="max-width: 600px;">
@@ -37,7 +35,5 @@
         </div>
     </div>
     </section>
-    <!-- Blog End -->
-<br><br><br>
-
+    {{-- end section all club --}}
 @endsection

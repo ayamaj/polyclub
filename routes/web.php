@@ -49,8 +49,7 @@ Route::get('/verify', function () {
 Auth::routes();
 
 // welcomes Routes
-
-    Route::get('/', [WelcomeController::class, 'home'])->name('home');
+Route::get('/', [WelcomeController::class, 'home'])->name('home');
 
 // End welcomes Routes
 

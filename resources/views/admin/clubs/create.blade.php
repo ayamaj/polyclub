@@ -39,7 +39,7 @@
                         <label class="required fw-bold fs-6 mb-2">Description</label>
                         <input type="text" name="description" id="description"
                             class="form-control form-control-solid mb-3 mb-lg-0 @error('description') is-invalid @enderror"
-                            placeholder=" description" />
+                            placeholder=" description"></input>
                         <br>
                         <div class="container_message">
                             @error('description')
@@ -85,7 +85,7 @@
                         <br>
                         <div class="container_message">
                             @error('image')
-                                <span >{{ $message }}</span>
+                                <span>{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
@@ -106,9 +106,4 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-
 @endsection
-
-

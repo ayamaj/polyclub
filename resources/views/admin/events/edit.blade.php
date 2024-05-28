@@ -60,6 +60,15 @@
                             class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Place"  value="{{ $event->place }}" />
                     </div>
                      <!--end::place-->
+
+                       <!--begin::link-->
+                    <div class="fv-row mb-7">
+                        <label class="required fw-bold fs-6 mb-2 ">Link</label>
+                        <input type="text" name="link" id="link"
+                            class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Link"  value="{{ $event->link }}" />
+                    </div>
+                     <!--end::link-->
+
                        <!--begin::Image input-->
                     <div class="form-group">
                         <label for="image" class="required fw-bold fs-6 mb-2">Image</label>

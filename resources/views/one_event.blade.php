@@ -4,9 +4,8 @@
 
 @section('content')
 
-    <!-- Blog Start -->
+    {{-- section all event --}}
     <section id="one_event">
-
         <div class="container-fluid bg-secondary my-5">
             <div class="container">
                 <div class="row align-items-center">
@@ -20,13 +19,13 @@
                         <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
                         <h1 class= "mb-4">{{ $event->date }}</h1>
                         <p class="mb-4">{{ $event->description }}</p>
-                        <a href="" class="btn btn-primary mt-2 py-2 px-5">rejoin the event </a>
+                        <a href="{{ $event->link }}" class="btn btn-primary mt-2 py-2 px-5">rejoin the event </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Blog End -->
+   {{-- end section all event --}}
 <br><br><br>
 
 @endsection

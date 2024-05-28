@@ -74,7 +74,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', [UserController::class, 'update'])->name('update');
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::match(['get', 'post'], '/search', [UserController::class, 'search'])->name('search');
-
         Route::get('/create', [UserController::class, 'create'])->name('create');
         Route::post('/store', [UserController::class, 'store'])->name('store');
 
@@ -116,6 +115,8 @@ Route::middleware('auth')->group(function () {
       Route::post('/search', [ClubController::class, 'search'])->name('search');
       Route::get('/create', [ClubController::class, 'create'])->name('create');
       Route::post('/store', [ClubController::class, 'store'])->name('store');
+      Route::get('/index_one_club/{club}', [ClubController::class, 'index_one_club'])->name('index_one_club');
+
 
 });
 // End Clubs Routes

@@ -73,7 +73,7 @@
                                 <th class="min-w-100px">Number</th>
                                 <th class="min-w-100px">Class</th>
                                 <th class="min-w-100px">Club</th>
-                                <th class="min-w-100px">Role</th>
+                                {{-- <th class="min-w-100px"></th> --}}
                                 @permission('action_user')
                                 <th class="text-end min-w-100px">Actions</th>
                                 @endpermission
@@ -171,13 +171,13 @@
 
 
 
-                                    <td>
-                                        @if ($User->role)
+                                    {{-- <td>
+                                     @if ($User->role)
                                             {{ $User->role->name }}
                                         @else
                                             No Role Assigned
                                         @endif
-                                    </td>
+                                    </td> --}}
 
                                     <!--begin::action-->
                                     @permission('action_user')
@@ -200,7 +200,7 @@
                                                     class="menu-link px-3">Edit</a>
                                             </div>
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-bs-toggle="modal"
+                                                <a href="#" class="menu-link px-3 " data-bs-toggle="modal"
                                                     data-bs-target="#kt_modal_delete_user-{{ $User->id }}">Delete</a>
                                             </div>
                                         </div>

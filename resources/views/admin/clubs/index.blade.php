@@ -94,16 +94,17 @@
                                             <!--end::image-->
                                             <!--begin::name et date-->
                                             <div class="d-flex flex-column">
-                                                <a href="view.html"
+                                                    <a href="{{ route('admin.club.index_one_club',['club' => $Club->id]) }}"
                                                     class="text-gray-800 text-hover-primary mb-1">{{ $Club->name }}</a>
                                                 <span>{{ $Club->date }}</span>
                                             </div>
                                             <!--end::name et date-->
                                         </td>
-                                        <td>{{ $Club->description }}</td>
+                                        <td>{{ Str::words($Club->description, 2, '') }}</td>
+
                                         <td>{{ $Club->president }}</td>
                                         <td>{{ $Club->date }}</td>
-                                        
+
                                         @permission('action_club')
                                         <td class="text-end">
                                             <!--begin::Update-->

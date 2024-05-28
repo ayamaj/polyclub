@@ -29,6 +29,7 @@ class EventRequest extends FormRequest
             'date'=>'required',
             'duration'=>'required',
             'place'=>'required',
+            'link'=>'required',
             'image_club'=>'required',
         ];
     }
@@ -42,6 +43,7 @@ class EventRequest extends FormRequest
             'date.required'=>"you didn't fill this field (date)",
             'duration.required'=>"you didn't fill this field (duration)",
             'place.required'=>"you didn't fill this field (place)",
+            'link.required'=>"you didn't fill this field (link)",
             'image_club.required'=>"you didn't fill this field (image_club)",
         ];
     }

@@ -42,6 +42,7 @@ class EventController extends Controller
             'date' => $request->date,
             'duration' => $request->duration,
             'place' => $request->place,
+            'link' => $request->link,
         ]);
         return redirect()->route('admin.event.index')->with('status', 'le event a bien été ajouté avec succès');
     }
@@ -63,6 +64,7 @@ class EventController extends Controller
             'date' => 'required|string',
             'duration' => 'required|string',
             'place' => 'required|string',
+            'link' => 'required|string',
         ]);
 
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
@@ -78,6 +80,7 @@ class EventController extends Controller
             'date' => $request->date,
             'duration' => $request->duration,
             'place' => $request->place,
+            'link' => $request->place,
 
 
         ]);

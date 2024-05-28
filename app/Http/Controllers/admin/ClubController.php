@@ -15,6 +15,20 @@ class ClubController extends Controller
         return view('admin.clubs.index', compact('clubs'));
     }
 
+    public function index_one_club(Club $club)
+    {
+        return view('admin.clubs.index_one_club', compact('club'));
+    }
+
+
+    public function edit_one_club($id)
+    {
+        $club = Club::findOrFail($id);
+        return view('admin.clubs.index_one_club', ['club' => $club, 'club_id' => $id]);
+    }
+
+
+
     public function create()
     {
         return view('admin.clubs.create');
@@ -27,7 +41,9 @@ class ClubController extends Controller
         return view('admin.clubs.edit', compact('club'));
     }
 
-    
+
+
+
 
     public function store(ClubRequest $request)
     {
@@ -99,7 +115,6 @@ class ClubController extends Controller
         $clubs = Club::where('name', 'like', '%' . $request->search. '%')->get();
          return view('admin.clubs.index', compact('clubs'));
     }
-
 
 
 

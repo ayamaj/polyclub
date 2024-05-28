@@ -1,21 +1,6 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Good - Bootstrap 5 HTML Admin Dashboard Template
-Purchase: https://themes.getbootstrap.com/product/good-bootstrap-5-admin-dashboard-template
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
-<!--begin::Head-->
-
-<!-- Mirrored from preview.keenthemes.com/good/authentication/sign-up/basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Feb 2022 10:09:20 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
     <title>Good – Bootstrap 5 HTML Admin Dashboard Template by Keenthemes</title>
@@ -33,34 +18,11 @@ License: For each use you must have a valid license purchased only from above li
     <meta property="og:site_name" content="Keenthemes | Good" />
     <link rel="canonical" href="https://preview.keenthemes.com/good" />
     <link rel="shortcut icon" href= "{{ asset('design/assets/media/logos/favicon.ico') }}" />
-    <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" />
-    <!--end::Fonts-->
-    <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href= "{{ asset('design/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href= "{{ asset('design/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <!--end::Global Stylesheets Bundle-->
-    <!--Begin::Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&amp;l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5FS8GGP');
-    </script>
-    <!--End::Google Tag Manager -->
 </head>
-<!--end::Head-->
-<!--begin::Body-->
 
 <body id="kt_body" class="auth-bg">
     <!--Begin::Google Tag Manager (noscript) -->
@@ -69,18 +31,12 @@ License: For each use you must have a valid license purchased only from above li
             style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!--End::Google Tag Manager (noscript) -->
-    <!--begin::Main-->
-    <!--begin::Root-->
+
     <div class="d-flex flex-column flex-root">
-        <!--begin::Authentication - Sign-up -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
-            <!--begin::Aside-->
             <div class="d-flex flex-column flex-lg-row-auto bg-primary w-xl-600px positon-xl-relative">
-                <!--begin::Wrapper-->
                 <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px">
-                    <!--begin::Header-->
                     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-                        <!--begin::Logo-->
                         <div class="container_logo">
                             <a href="{{ route('home') }}">
                                 <img alt="Logo" src= "{{ asset('design/assets/media/image/logo.svg') }}"
@@ -88,22 +44,15 @@ License: For each use you must have a valid license purchased only from above li
                             </a>
                         </div>
                     </div>
-                    <!--end::Header-->
-                    <!--begin::Illustration-->
-
                     <img alt="image" src= "{{ asset('design/assets/media/image/img1.svg') }}" class="img1" />
-
-                    <!--end::Illustration-->
                 </div>
-                <!--end::Wrapper-->
             </div>
-            <!--begin::Aside-->
-            <!--begin::Body-->
-            <a href="{{ route('home') }}"class="btn btn-lg  btn-lg-square rounded-circle back-to-top" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"  fill="gray"  class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                  </svg>
-
+            <a href="{{ route('home') }}"class="btn btn-lg  btn-lg-square rounded-circle back-to-top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray"
+                    class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg>
             </a>
             <div class="d-flex flex-column flex-lg-row-fluid py-10">
                 <div class="d-flex flex-center flex-column flex-column-fluid">
@@ -131,6 +80,7 @@ License: For each use you must have a valid license purchased only from above li
                                 @enderror
                             </div>
                             <!--end::name-->
+
                             <!--begin::number-->
                             <div class=" fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6"
@@ -175,26 +125,8 @@ License: For each use you must have a valid license purchased only from above li
                                 @enderror
                             </div>
                             <!--end::email-->
-                            <!--begin::password-->
-                            {{-- <div class="fv-row mb-7">
-                                <label class="form-label fw-bolder text-dark fs-6 "
-                                    for="password">{{ __('Password') }}</label>
-                                <input
-                                    class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
-                                    id="password" type="password" name="password" value="{{ old('password') }}" />
-                                    <span
-                                    class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
-                                    data-kt-password-meter-control="visibility">
-                                    <i class="bi bi-eye-slash fs-2"></i>
-                                    <i class="bi bi-eye fs-2 d-none"></i>
-                                </span>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
 
-                                </div> --}}
+                            <!--begin::password-->
                             <div class="fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6"
                                     for="password">{{ __('Password') }}</label>
@@ -203,7 +135,7 @@ License: For each use you must have a valid license purchased only from above li
                                         class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
                                         id="password" type="password" name="password"
                                         value="{{ old('password') }}" />
-                                        @error('password')
+                                    @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -220,58 +152,10 @@ License: For each use you must have a valid license purchased only from above li
                                         </svg>
                                     </span>
                                 </div>
-
                             </div>
+                            <!--begin::password-->
 
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function() {
-                                    const togglePassword = document.querySelector('.toggle-password');
-                                    const passwordInput = document.getElementById('password');
-                                    const showPasswordIcon = togglePassword.querySelector('.bi-eye');
-                                    const hidePasswordIcon = togglePassword.querySelector('.bi-eye-slash');
-
-                                    togglePassword.addEventListener('click', function() {
-                                        if (passwordInput.type === 'password') {
-                                            passwordInput.type = 'text';
-                                            showPasswordIcon.classList.add('d-none');
-                                            hidePasswordIcon.classList.remove('d-none');
-                                        } else {
-                                            passwordInput.type = 'password';
-                                            showPasswordIcon.classList.remove('d-none');
-                                            hidePasswordIcon.classList.add('d-none');
-                                        }
-                                    });
-                                });
-                            </script>
-
-
-                            <!--end::password-->
-                            {{-- <div class="mb-7">
-                                <label class="required fw-bold fs-6 mb-5">Role</label>
-                                @foreach ($roles as $role)
-                                    <div class="d-flex fv-row">
-                                        <div class="form-check form-check-custom form-check-solid">
-                                            <input class="form-check-input me-3 @error('name') is-invalid @enderror" name="role_id"
-                                                type="radio" value="{{ $role->id }}" id="kt_modal_update_role_option_0"
-                                                />
-                                            <br>
-                                            <div class="container_message">
-                                                @error('role_id')
-                                                    <span style="color: red">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <label class="form-check-label" for="kt_modal_update_role_option_0">
-                                                <div class="fw-bolder text-gray-800">{{ $role->name }}</div>
-                                                <div class="text-gray-600">Best for business owners and company
-                                                    administrators
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class='separator separator-dashed my-5'></div>
-                                @endforeach
-                            </div> --}}
-
+                            <!--begin::club-->
                             <div class="mb-7">
                                 <label class="required fw-bold fs-6 mb-5">Club</label>
                                 @foreach ($clubs as $club)
@@ -292,44 +176,22 @@ License: For each use you must have a valid license purchased only from above li
                                         <span style="color: red">{{ $message }}</span>
                                     @enderror
                                 </div>
-
                             </div>
-
-
-
-                            <!--begin::club-->
-                            {{-- <label class="required fw-bold fs-6 mb-5">Permission</label>
-                            @foreach ($permissions as $permission)
-                            <div class="d-flex fv-row">
-                                <div class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input me-3" type="checkbox"
-                                           value="{{ $permission->id }}" id="permission_{{ $permission->id }}"
-                                           name="permissions[]" />
-                                    <label class="form-check-label" for="permission_{{ $permission->id }}">
-                                        <div class="fw-bolder text-gray-800">{{ $permission->name }}</div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class='separator separator-dashed my-5'></div>
-                            @endforeach --}}
                             <!--end::club-->
 
                             <br><br>
+
                             <!--begin::Actions-->
                             <div class="text-center">
                                 <button type="submit" class="btn btn-lg btn-primary" style="width: 70%;">
                                     {{ __('Submit') }}
-
                                 </button>
                             </div>
                             <!--end::Actions-->
+
                         </form>
-                        <!--end::Form-->
                     </div>
-                    <!--end::Wrapper-->
                 </div>
-                <!--end::Content-->
-                <!--begin::Footer-->
                 <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                     <!--begin::Links-->
                     <div class="d-flex flex-center fw-bold fs-6">
@@ -342,26 +204,50 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::Links-->
                 </div>
-                <!--end::Footer-->
             </div>
-            <!--end::Body-->
         </div>
-        <!--end::Authentication - Sign-up-->
     </div>
-    <!--end::Root-->
-    <!--end::Main-->
 
-    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{ asset('design/assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('design/assets/js/scripts.bundle.js') }}"></script>
-    <!--end::Global Javascript Bundle-->
-    <!--begin::Page Custom Javascript(used by this page)-->
     <script src="{{ asset('design/assets/js/custom/authentication/sign-up/general.js') }}"></script>
-    <!--end::Page Custom Javascript-->
-    <!--end::Javascript-->
-</body>
-<!--end::Body-->
+    <!--begin::script eye password -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.getElementById('password');
+            const showPasswordIcon = togglePassword.querySelector('.bi-eye');
+            const hidePasswordIcon = togglePassword.querySelector('.bi-eye-slash');
 
-<!-- Mirrored from preview.keenthemes.com/good/authentication/sign-up/basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Feb 2022 10:09:21 GMT -->
+            togglePassword.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    showPasswordIcon.classList.add('d-none');
+                    hidePasswordIcon.classList.remove('d-none');
+                } else {
+                    passwordInput.type = 'password';
+                    showPasswordIcon.classList.remove('d-none');
+                    hidePasswordIcon.classList.add('d-none');
+                }
+            });
+        });
+    </script>
+    <!--begin::script eye password -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5FS8GGP');
+    </script>
+</body>
 
 </html>

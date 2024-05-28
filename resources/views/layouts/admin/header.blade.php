@@ -6,16 +6,16 @@
         </a>
         <!--end::Logo-->
     </div>
-    <div class="topbar">
+    <div class="topbar" >
         <div
             class="container-fluid py-6 py-lg-0 d-flex flex-column flex-sm-row align-items-lg-stretch justify-content-sm-between">
-            <div class="page-title d-flex flex-column me-5">
-                <h2 class="nav-link active">University Club Management</h2>
+            <div class="page-title d-flex flex-column me-5 ">
+                <h2 class="nav-link active ">UNIVERSITY CLUB MANAGMENT</h2>
             </div>
-            <div class="d-flex align-items-center pt-3 pt-sm-0">
+            {{-- <div class="d-flex align-items-center pt-3 pt-sm-0">
                 <div class="d-flex">
                     <!--begin::Chat-->
-                    {{-- <div class="d-flex align-items-center me-4">
+                    <div class="d-flex align-items-center me-4">
                         <a href="#" id="kt_drawer_chat_toggle"
                             class="btn btn-icon btn-active-light btn-outline btn-outline-default btn-icon-gray-700 btn-active-icon-primary"
                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
@@ -31,10 +31,10 @@
                                 </svg>
                             </span>
                         </a>
-                    </div> --}}
+                    </div>
                     <!--end::Chat-->
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

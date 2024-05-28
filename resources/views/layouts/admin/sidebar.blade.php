@@ -32,34 +32,31 @@
         <!--end::search select-->
  </div> --}}
     <!--end::search-->
+    {{-- ************ --}}
     <div class="aside-menu flex-column-fluid">
-        <div class="hover-scroll-overlay-y px-8 my-5 my-lg-9" id="kt_aside_menu_wrapper" data-kt-scroll="true"
-            data-kt-scroll-height="auto"
-            data-kt-scroll-dependencies="{default: '#kt_aside_toolbar, #kt_aside_footer', lg: '#kt_header, #kt_aside_toolbar, #kt_aside_footer'}"
-            data-kt-scroll-offset="0">
-            <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold"
-                id="#kt_aside_menu" data-kt-menu="true">
-                      {{-- Dashboard --}}
-                      <div class="menu-item">
-                        <a class="menu-link " href="{{ route('admin.dashboard') }}">
-                            <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                <span class="svg-icon svg-icon-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                            fill="black" />
-                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                            fill="black" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
+        <div class="hover-scroll-overlay-y px-8 my-5 my-lg-9" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="{default: '#kt_aside_toolbar, #kt_aside_footer', lg: '#kt_header, #kt_aside_toolbar, #kt_aside_footer'}" data-kt-scroll-offset="0" >
+            <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold" id="#kt_aside_menu" data-kt-menu="true">
+                {{-- Dashboard --}}
+                <div class="menu-item">
+                    <a class="menu-link " href="{{ route('admin.dashboard') }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
+                                        fill="black" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                        fill="black" />
+                                </svg>
                             </span>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                        </a>
-                    </div>
-                    {{-- end dashboard --}}
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                    </a>
+                </div>
+                {{-- end dashboard --}}
                 {{-- User --}}
                 <div class="menu-item">
                     <a class="menu-link " href="{{ route('admin.user.index') }}">
@@ -83,51 +80,51 @@
                 {{-- end User --}}
 
                 {{-- Role --}}
-                {{-- @permission('roles') --}}
-                <div class="menu-item">
-                    <a class="menu-link" href="{{ route('admin.role.index') }}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                            <span class="svg-icon svg-icon-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                        fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                        fill="black" />
-                                </svg>
+                @permission('roles')
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('admin.role.index') }}">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                                <span class="svg-icon svg-icon-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
+                                            fill="black" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                            fill="black" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
                             </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">Roles</span>
-                    </a>
-                    </a>
-                </div>
-             {{-- @endpermission --}}
+                            <span class="menu-title">Roles</span>
+                        </a>
+                        </a>
+                    </div>
+                @endpermission
                 {{-- end Role --}}
 
                 {{-- permission --}}
-             {{-- @permission('permissions') --}}
-                <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.permission.index') }}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                            <span class="svg-icon svg-icon-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                        fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                        fill="black" />
-                                </svg>
+                @permission('permissions')
+                    <div class="menu-item">
+                        <a class="menu-link " href="{{ route('admin.permission.index') }}">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                                <span class="svg-icon svg-icon-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
+                                            fill="black" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                            fill="black" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
                             </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">Permissions</span>
-                    </a>
-                    </a>
-                </div>
-                {{-- @endpermission --}}
+                            <span class="menu-title">Permissions</span>
+                        </a>
+                        </a>
+                    </div>
+                @endpermission
                 {{-- end permission --}}
                 {{-- Club --}}
                 <div class="menu-item">
@@ -160,7 +157,8 @@
                                     viewBox="0 0 24 24" fill="none">
                                     <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
                                         fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                    <path opacity="0.3"
+                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
                                         fill="black" />
                                 </svg>
                             </span>
@@ -172,8 +170,8 @@
                 </div>
                 {{-- end Event  --}}
 
-                 {{-- demande --}}
-                 <div class="menu-item">
+                {{-- demande --}}
+                <div class="menu-item">
                     <a class="menu-link " href="{{ route('admin.form.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -182,7 +180,8 @@
                                     viewBox="0 0 24 24" fill="none">
                                     <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
                                         fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                    <path opacity="0.3"
+                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
                                         fill="black" />
                                 </svg>
                             </span>
@@ -193,30 +192,32 @@
                     </a>
                 </div>
                 {{-- end demande --}}
-{{-- ****************** --}}
-     {{--Resource --}}
-     <div class="menu-item">
-        <a class="menu-link " href="{{ route('admin.resource.index2') }}">
-            <span class="menu-icon">
-                <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                <span class="svg-icon svg-icon-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none">
-                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                            fill="black" />
-                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                            fill="black" />
-                    </svg>
-                </span>
-                <!--end::Svg Icon-->
-            </span>
-            <span class="menu-title">Resource</span>
-        </a>
-        </a>
-    </div>
-    {{-- end resource --}}
-                 {{--Request resources --}}
-                 <div class="menu-item">
+
+                {{-- Resource --}}
+                <div class="menu-item">
+                    <a class="menu-link " href="{{ route('admin.resource.index2') }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
+                                        fill="black" />
+                                    <path opacity="0.3"
+                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                        fill="black" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Resource</span>
+                    </a>
+                    </a>
+                </div>
+                {{-- end resource --}}
+
+                {{-- Request resources --}}
+                <div class="menu-item">
                     <a class="menu-link " href="{{ route('admin.resource.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -225,7 +226,8 @@
                                     viewBox="0 0 24 24" fill="none">
                                     <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
                                         fill="black" />
-                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                    <path opacity="0.3"
+                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
                                         fill="black" />
                                 </svg>
                             </span>
@@ -237,11 +239,9 @@
                 </div>
                 {{-- end Request resources --}}
 
-
-
-                      {{--message resource --}}
-                      @permission('permissions')
-                      <div class="menu-item">
+                {{-- message resource --}}
+                @permission('permissions')
+                    <div class="menu-item">
                         <a class="menu-link " href="{{ route('admin.resource.create') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -250,7 +250,8 @@
                                         viewBox="0 0 24 24" fill="none">
                                         <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
                                             fill="black" />
-                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
+                                        <path opacity="0.3"
+                                            d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
                                             fill="black" />
                                     </svg>
                                 </span>
@@ -260,13 +261,15 @@
                         </a>
                         </a>
                     </div>
-                    @endpermission
-                    {{-- message resource --}}
+                @endpermission
+                {{-- message resource --}}
 
-                {{-- ****************** --}}
+
             </div>
         </div>
     </div>
+    {{-- ************ --}}
+
     <div class="aside-footer flex-column-auto pb-5" id="kt_aside_footer">
         <div class="aside-user">
             <div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
@@ -282,9 +285,10 @@
                 <div class="flex-row-fluid flex-wrap">
                     <div class="d-flex align-items-center flex-stack">
                         <div class="me-2">
-                            {{-- <a href="#"
+                            <a href="#"
                                 class="text-gray-800 text-hover-primary fs-6 fw-bold lh-0">{{ auth()->user()->name }}</a>
-                            <span class="text-gray-400 fw-bold d-block fs-8">{{ auth()->user()->email }}</span> --}}
+                            <span class="text-gray-400 fw-bold d-block fs-8">{{ auth()->user()->email }}</span>
+
                         </div>
                         <form action="{{ route('logout') }}" method="POST"
                             class="btn btn-icon btn-active-color-primary me-n4" data-bs-toggle="tooltip"
