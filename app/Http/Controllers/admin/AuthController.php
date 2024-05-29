@@ -11,7 +11,7 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    public function dashboard()
+        public function dashboard()
         {
             Session::put('page', 'dashboard');
             return view('admin.dashboard');

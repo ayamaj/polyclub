@@ -14,21 +14,21 @@ class FormController extends Controller
 {
     public function index()
     {
-
-         $forms = Form::latest()->paginate(15);
-         return view('admin.forms.index', compact('forms'));
+        $forms = Form::latest()->paginate(15);
+        return view('admin.forms.index', compact('forms'));
     }
 
     public function edit(Form $form)
-{
-    $roles = Role::all();
-    $clubs = Club::all();
-    return view('admin.forms.edit', compact('form', 'roles','clubs'));
-}
+    {
+        $roles = Role::all();
+        $clubs = Club::all();
+        return view('admin.forms.edit', compact('form', 'roles', 'clubs'));
+    }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Form::find($id)->delete();
-        return redirect()->route('admin.form.index')->with('status','the person has been deleted ');
+        return redirect()->route('admin.form.index')->with('status', 'the person has been deleted ');
     }
 
     public function update(Request $request)
@@ -36,7 +36,7 @@ class FormController extends Controller
         // dd($request->all());
         $request->validate([
             'name' => 'required|string',
-            'number'=> 'required|string',
+            'number' => 'required|string',
             'clubs' => 'required|array|min:1', // Ensure at least one club is selected
             'clubs.*' => 'exists:clubs,id',
             'class' => 'required|string',
@@ -45,12 +45,12 @@ class FormController extends Controller
 
         ]);
         $user = User::create([
-            'name'=> $request->name,
-            'number'=> $request->number,
-            'role_id'=> $request->role_id,
-            'class'=> $request->class,
-            'email'=> $request->email,
-            'password'=> $request->password,
+            'name' => $request->name,
+            'number' => $request->number,
+            'role_id' => $request->role_id,
+            'class' => $request->class,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
         $user->clubs()->sync($request->clubs);
         //delete the request account
@@ -62,9 +62,7 @@ class FormController extends Controller
 
     public function search(Request $request)
     {
-        $forms = Form::where('name', 'like', '%' . $request->search. '%')->get();
-         return view('admin.forms.index', compact('forms'));
+        $forms = Form::where('name', 'like', '%' . $request->search . '%')->get();
+        return view('admin.forms.index', compact('forms'));
     }
-
-
 }

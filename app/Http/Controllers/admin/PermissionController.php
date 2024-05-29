@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PermissionRequest;
 use App\Models\Permission;
@@ -29,14 +30,15 @@ class PermissionController extends Controller
     {
         // dd($request->all());
         Permission::create([
-            'name'=> $request->name,
+            'name' => $request->name,
         ]);
-            return redirect()->route('admin.permission.index')->with('status', 'le permission a bien été ajouté avec succès');
-       }
+        return redirect()->route('admin.permission.index')->with('status', 'le permission a bien été ajouté avec succès');
+    }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Permission::find($id)->delete();
-        return redirect()->route('admin.permission.index')->with('status','le permission a bien ete supprime ');
+        return redirect()->route('admin.permission.index')->with('status', 'le permission a bien ete supprime ');
     }
 
     public function update(Request $request)
@@ -57,9 +59,7 @@ class PermissionController extends Controller
         $searchTerm = $request->input('search');
 
         // Recherche des permissions en fonction du nom
-        $permissions = Permission::where('name', 'like', '%' . $searchTerm. '%')->get();
-
+        $permissions = Permission::where('name', 'like', '%' . $searchTerm . '%')->get();
         return view('search', compact('permissions'));
     }
-
 }

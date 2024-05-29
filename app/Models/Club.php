@@ -19,18 +19,16 @@ class Club extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class,'club_user')->withPivot('club_id','user_id');
+        return $this->belongsToMany(User::class, 'club_user')->withPivot('club_id', 'user_id');
     }
 
     public function forms()
     {
-        return $this->belongsToMany(Form::class,'club_form','form_id','club_id');
+        return $this->belongsToMany(Form::class, 'club_form', 'form_id', 'club_id');
     }
 
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
-
-
 }

@@ -22,5 +22,4 @@ class Resource extends Model
     {
         return $this->belongsTo(Club::class, "club_id");
     }
-
 }

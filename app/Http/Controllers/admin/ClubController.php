@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
@@ -20,14 +21,11 @@ class ClubController extends Controller
         return view('admin.clubs.index_one_club', compact('club'));
     }
 
-
     public function edit_one_club($id)
     {
         $club = Club::findOrFail($id);
         return view('admin.clubs.index_one_club', ['club' => $club, 'club_id' => $id]);
     }
-
-
 
     public function create()
     {
@@ -36,37 +34,62 @@ class ClubController extends Controller
 
     public function edit(string $id)
     {
-
         $club = Club::find($id);
         return view('admin.clubs.edit', compact('club'));
     }
 
-
-
-
-
     public function store(ClubRequest $request)
     {
-         //  dd($request->all());
-         $avatarName = '/uploads/'. $request->name . '.' . $request->image->getClientOriginalExtension();
-         $request->image->move(public_path('uploads'), $avatarName,60);
+        //  dd($request->all());
+        $avatarName = '/uploads/' . $request->name . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('uploads'), $avatarName, 60);
 
         Club::create([
-            'name'=> $request->name,
-            'description'=> $request->description,
-            'president'=> $request->president,
+            'name' => $request->name,
+            'description' => $request->description,
+            'president' => $request->president,
             'image' => $avatarName,
-            'date'=> $request->date,
-
-              ]);
+            'date' => $request->date,
+        ]);
         return redirect()->route('admin.club.index')->with('status', 'le club a bien été ajouté avec succès');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Club::find($id)->delete();
-        return redirect()->route('admin.club.index')->with('status','le club a bien ete supprime ');
+        return redirect()->route('admin.club.index')->with('status', 'le club a bien ete supprime ');
     }
 
+    public function update(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'president' => 'required|string',
+            'image' => 'required|mimes:jpeg,png,jpg,gif',
+            'date' => 'required|string',
+        ]);
+
+        $avatarName = '/uploads/' . $request->name . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('uploads'), $avatarName, 60);
+
+        Club::find($request->id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'president' => $request->president,
+            'image' => $avatarName,
+            'date' => $request->date,
+        ]);
+
+        return redirect()->route('admin.club.index')->with('status', 'le club  a bien été modifié avec succès');
+    }
+
+    public function search(Request $request)
+    {
+        $clubs = Club::where('name', 'like', '%' . $request->search . '%')->get();
+        return view('admin.clubs.index', compact('clubs'));
+    }
 
     // public function update(Request $request)
     // {
@@ -81,42 +104,6 @@ class ClubController extends Controller
     //     $club->save();
     //     return redirect()->route('admin.club.index')->with('status', 'le club  a bien été modifié avec succès');
     // }
-
-    public function update(Request $request)
-    {
-        // dd($request->all());
-        $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'president'=> 'required|string',
-            'image' => 'required|mimes:jpeg,png,jpg,gif',
-            'date'=> 'required|string',
-
-        ]);
-
-        $avatarName = '/uploads/'. $request->name . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move(public_path('uploads'), $avatarName,60);
-
-
-          Club::find($request->id)->update([
-            'name'=> $request->name,
-            'description'=> $request->description,
-            'president'=> $request->president,
-            'image' => $avatarName,
-            'date'=> $request->date,
-
-        ]);
-
-        return redirect()->route('admin.club.index')->with('status', 'le club  a bien été modifié avec succès');
-    }
-
-    public function search(Request $request)
-    {
-        $clubs = Club::where('name', 'like', '%' . $request->search. '%')->get();
-         return view('admin.clubs.index', compact('clubs'));
-    }
-
-
 
 
 }

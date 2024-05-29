@@ -5,8 +5,6 @@
 
 @section('content')
 <div class="container-fluid">
-
-
 <div class="row container-fluid">
 
     <!-- Earnings (Monthly) Card Example -->

@@ -38,7 +38,7 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold" id="#kt_aside_menu" data-kt-menu="true">
                 {{-- Dashboard --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.dashboard') }}">
+                    <a class="menu-link {{ Request::is('admin') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}" >
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -56,10 +56,13 @@
                     </a>
                     </a>
                 </div>
+                <style>
+
+                </style>
                 {{-- end dashboard --}}
                 {{-- User --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.user.index') }}">
+                    <a class="menu-link {{ Request::is('admin/users') ? 'active' : '' }}" href="{{ route('admin.user.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -82,7 +85,7 @@
                 {{-- Role --}}
                 @permission('roles')
                     <div class="menu-item">
-                        <a class="menu-link" href="{{ route('admin.role.index') }}">
+                        <a class="menu-link {{ Request::is('admin/roles') ? 'active' : '' }}" href="{{ route('admin.role.index') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                                 <span class="svg-icon svg-icon-5">
@@ -106,7 +109,7 @@
                 {{-- permission --}}
                 @permission('permissions')
                     <div class="menu-item">
-                        <a class="menu-link " href="{{ route('admin.permission.index') }}">
+                        <a class="menu-link {{ Request::is('admin/permissions') ? 'active' : '' }}" href="{{ route('admin.permission.index') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                                 <span class="svg-icon svg-icon-5">
@@ -128,7 +131,7 @@
                 {{-- end permission --}}
                 {{-- Club --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.club.index') }}">
+                    <a class="menu-link {{ Request::is('admin/clubs') ? 'active' : '' }}" href="{{ route('admin.club.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -149,7 +152,7 @@
                 {{-- end Club --}}
                 {{-- Event --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.event.index') }}">
+                    <a class="menu-link {{ Request::is('admin/events') ? 'active' : '' }}"  href="{{ route('admin.event.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -172,7 +175,7 @@
 
                 {{-- demande --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.form.index') }}">
+                    <a class="menu-link {{ Request::is('admin/forms') ? 'active' : '' }}" href="{{ route('admin.form.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -195,7 +198,7 @@
 
                 {{-- Resource --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.resource.index2') }}">
+                    <a class="menu-link {{ Request::is('admin/resources/index2') ? 'active' : '' }}" href="{{ route('admin.resource.index2') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -218,7 +221,7 @@
 
                 {{-- Request resources --}}
                 <div class="menu-item">
-                    <a class="menu-link " href="{{ route('admin.resource.index') }}">
+                    <a class="menu-link {{ Request::is('admin/resources') ? 'active' : '' }}" href="{{ route('admin.resource.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -240,9 +243,9 @@
                 {{-- end Request resources --}}
 
                 {{-- message resource --}}
-                @permission('permissions')
+                @permission('message_resources')
                     <div class="menu-item">
-                        <a class="menu-link " href="{{ route('admin.resource.create') }}">
+                        <a class="menu-link {{ Request::is('admin/resources/create') ? 'active' : '' }}" href="{{ route('admin.resource.create') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                                 <span class="svg-icon svg-icon-5">

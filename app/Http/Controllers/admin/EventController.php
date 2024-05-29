@@ -15,7 +15,6 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
-
     public function create()
     {
         return view('admin.events.create');
@@ -31,7 +30,7 @@ class EventController extends Controller
     {
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
-        $avatarName2 = '/uploads/' . $request->titre .'2'. '.' . $request->image_club->getClientOriginalExtension();
+        $avatarName2 = '/uploads/' . $request->titre . '2' . '.' . $request->image_club->getClientOriginalExtension();
         $request->image_club->move(public_path('uploads'), $avatarName2, 60);
 
         Event::create([
@@ -46,12 +45,12 @@ class EventController extends Controller
         ]);
         return redirect()->route('admin.event.index')->with('status', 'le event a bien été ajouté avec succès');
     }
+
     public function delete($id)
     {
         Event::find($id)->delete();
         return redirect()->route('admin.event.index')->with('status', 'Le event a bien été supprimé');
     }
-
 
     public function update(Request $request)
     {
@@ -69,7 +68,7 @@ class EventController extends Controller
 
         $avatarName = '/uploads/' . $request->titre . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path('uploads'), $avatarName, 60);
-        $avatarName2 = '/uploads/' . $request->titre  .'2'. '.' . $request->image_club->getClientOriginalExtension();
+        $avatarName2 = '/uploads/' . $request->titre  . '2' . '.' . $request->image_club->getClientOriginalExtension();
         $request->image_club->move(public_path('uploads'), $avatarName2, 60);
 
         Event::find($request->id)->update([
@@ -81,16 +80,13 @@ class EventController extends Controller
             'duration' => $request->duration,
             'place' => $request->place,
             'link' => $request->place,
-
-
         ]);
-
         return redirect()->route('admin.event.index')->with('status', 'le event a bien été modifié avec succès');
     }
 
     public function search(Request $request)
     {
-        $events = Event::where('titre', 'like', '%' . $request->search. '%')->get();
-         return view('admin.events.index', compact('events'));
+        $events = Event::where('titre', 'like', '%' . $request->search . '%')->get();
+        return view('admin.events.index', compact('events'));
     }
 }

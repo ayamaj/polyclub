@@ -22,7 +22,7 @@ class RoleController extends Controller
     public function create()
     {
         $permissions  = Permission::all();
-        return view('admin.roles.create',compact('permissions'));
+        return view('admin.roles.create', compact('permissions'));
     }
 
     public function edit(string $id)
@@ -41,17 +41,17 @@ class RoleController extends Controller
             'description' => $request->description,
 
         ]);
-        
+
         // Sync permissions with the role
         $role->permissions()->sync($request->permissions);
 
         return redirect()->route('admin.role.index')->with('status', 'le role a bien été ajouté avec succès');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Role::find($id)->delete();
         return redirect()->route('admin.role.index')->with('status', 'Le rôle a bien été supprimé');
-
     }
 
     public function update(RoleRequest $request)

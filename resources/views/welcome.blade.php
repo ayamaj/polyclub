@@ -142,7 +142,7 @@
                                     </h5>
                                     <span>{{ date('Y', strtotime($event->date)) }}</span>
                                 </div>
-                                <div class="d-flex flex-column justify-content-center py-3 px-4">
+                                <div class="d-flex flex-column justify-content-center py-3 px-5">
                                     <div class="d-flex mb-2">
                                         <small class="text-uppercase me-3"><i class="bi bi-shop"
                                                 style="margin-right: 7px;"></i>{{ $event->titre }}</small>
@@ -153,7 +153,7 @@
                                     <a class="h4" href="">{{ $event->description }}</a>
                                 </div>
                                 <div
-                                    class="flex-shrink-0 d-flex flex-column justify-content-center text-center  px-4 text-end">
+                                    class="flex-shrink-0 d-flex flex-column justify-content-center text-center  px-5 text-end">
                                     <img src="{{ asset($event->image_club) }}" alt="HTML5 Icon"
                                         style="width:60px;height:60px;border-radius: 50%;overflow: hidden; ">
                                 </div>

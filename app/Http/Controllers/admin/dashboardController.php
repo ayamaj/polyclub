@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+
 use App\Models\Event;
 use App\Models\Club;
 use App\Http\Controllers\Controller;
@@ -14,6 +15,4 @@ class dashboardController extends Controller
         $clubs = Club::all();
         return view('admin.dashboard', compact('events', 'clubs'));
     }
-
-
 }
