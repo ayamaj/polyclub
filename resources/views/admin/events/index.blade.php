@@ -24,8 +24,9 @@
                     <div class="card-header mt-6">
                         <div class="card-title">
                             <!--begin::Search-->
-                              <!--begin::Search-->
-                              <form class="d-flex align-items-center position-relative my-1 me-5" method="post" action="{{ route('admin.event.search') }}" >
+                            <!--begin::Search-->
+                            <form class="d-flex align-items-center position-relative my-1 me-5" method="post"
+                                action="{{ route('admin.event.search') }}">
                                 @csrf
                                 <span class="svg-icon svg-icon-1 position-absolute ms-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -39,28 +40,28 @@
                                 </span>
                                 <input type="text" data-kt-permissions-table-filter="search" name="search"
                                     class="form-control form-control-solid w-250px ps-15" placeholder="Search Event" />
-                                    <button style="display: none" type="submit"></button>
+                                <button style="display: none" type="submit"></button>
                             </form>
                             <!--end::Search-->
                             <!--end::Search-->
                         </div>
                         @permission('create_event')
-                        <div class="card-toolbar">
-                            <!--begin::Button aadd event -->
-                            <a type="button" class="btn btn-light-primary" href="{{ route('admin.event.create') }}">
-                                <span class="svg-icon svg-icon-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
-                                            fill="black" />
-                                        <rect x="10.8891" y="17.8033" width="12" height="2" rx="1"
-                                            transform="rotate(-90 10.8891 17.8033)" fill="black" />
-                                        <rect x="6.01041" y="10.9247" width="12" height="2" rx="1"
-                                            fill="black" />
-                                    </svg>
-                                </span> Add Event</a>
-                            <!--end::Button Add event-->
-                        </div>
+                            <div class="card-toolbar">
+                                <!--begin::Button aadd event -->
+                                <a type="button" class="btn btn-light-primary" href="{{ route('admin.event.create') }}">
+                                    <span class="svg-icon svg-icon-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                fill="black" />
+                                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1"
+                                                transform="rotate(-90 10.8891 17.8033)" fill="black" />
+                                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1"
+                                                fill="black" />
+                                        </svg>
+                                    </span> Add Event</a>
+                                <!--end::Button Add event-->
+                            </div>
                         @endpermission
                     </div>
                     <div class="card-body pt-0">
@@ -74,7 +75,7 @@
                                     <th class="min-w-125px">Date</th>
                                     <th class="min-w-125px">Duration</th>
                                     @permission('action_event')
-                                    <th class="text-end min-w-100px">Actions</th>
+                                        <th class="text-end min-w-100px">Actions</th>
                                     @endpermission
                                 </tr>
                             </thead>
@@ -104,23 +105,23 @@
                                         <td>{{ $Event->date }}</td>
                                         <td>{{ $Event->duration }}</td>
                                         @permission('action_event')
-                                        <td class="text-end">
-                                            <!--begin::Update-->
-                                            <a class="btn btn-icon btn-primary"
-                                                href="{{ route('admin.event.edit', ['id' => $Event->id]) }}">
-                                                <i class="fas fa-solid fa-pen fs-4 ml-1"></i>
-                                                </span>
-                                            </a>
-                                            <!--end::Update-->
-                                            <!--begin::Delete-->
-                                            <a type="button" class="btn btn-icon btn-danger" class="btn btn-primary"
-                                                data-kt-permissions-table-filter="delete_row" data-bs-toggle="modal"
-                                                data-bs-target="#kt_modal_delete_user-{{ $Event->id }}">
-                                                <i class="fas fa-solid fa-trash fs-4 ml-1"></i>
-                                                </span>
-                                            </a>
-                                            <!--end::Delete-->
-                                        </td>
+                                            <td class="text-end">
+                                                <!--begin::Update-->
+                                                <a class="btn btn-icon btn-primary"
+                                                    href="{{ route('admin.event.edit', ['id' => $Event->id]) }}">
+                                                    <i class="fas fa-solid fa-pen fs-4 ml-1"></i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Update-->
+                                                <!--begin::Delete-->
+                                                <a type="button" class="btn btn-icon btn-danger" class="btn btn-primary"
+                                                    data-kt-permissions-table-filter="delete_row" data-bs-toggle="modal"
+                                                    data-bs-target="#kt_modal_delete_user-{{ $Event->id }}">
+                                                    <i class="fas fa-solid fa-trash fs-4 ml-1"></i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Delete-->
+                                            </td>
                                         @endpermission
                                     </tr>
                                     <!--begin::model delete* -->
@@ -184,7 +185,8 @@
 
                                                             <a type="button"
                                                                 class="swal2-cancel btn fw-bold btn-active-light-primary"
-                                                                aria-label style="display: inline-block;" href="{{ route('admin.event.index') }}">No,cancel </a>
+                                                                aria-label style="display: inline-block;"
+                                                                href="{{ route('admin.event.index') }}">No,cancel </a>
                                                         </div>
 
                                                         <div class="swal2-footer" style="display: none;">

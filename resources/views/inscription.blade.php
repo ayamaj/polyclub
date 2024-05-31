@@ -114,7 +114,7 @@
                             <!--begin::email-->
                             <div class="fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6 "
-                                    for="email">{{ __('Email Address') }}</label>
+                                    for="email">{{ __('Email Address University') }}</label>
                                 <input
                                     class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror"
                                     id="email" type="email" name="email" value="{{ old('email') }}" />
@@ -194,14 +194,14 @@
                 </div>
                 <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                     <!--begin::Links-->
-                    <div class="d-flex flex-center fw-bold fs-6">
+                    {{-- <div class="d-flex flex-center fw-bold fs-6">
                         <a href="https://keenthemes.com/" class="text-muted text-hover-primary px-2"
                             target="_blank">About</a>
                         <a href="https://devs.keenthemes.com/" class="text-muted text-hover-primary px-2"
                             target="_blank">Support</a>
                         <a href="https://themes.getbootstrap.com/product/good-bootstrap-5-admin-dashboard-template"
                             class="text-muted text-hover-primary px-2" target="_blank">Purchase</a>
-                    </div>
+                    </div> --}}
                     <!--end::Links-->
                 </div>
             </div>

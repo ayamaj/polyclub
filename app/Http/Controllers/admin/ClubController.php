@@ -20,7 +20,7 @@ class ClubController extends Controller
     {
         return view('admin.clubs.index_one_club', compact('club'));
     }
-
+  
     public function edit_one_club($id)
     {
         $club = Club::findOrFail($id);

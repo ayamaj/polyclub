@@ -1,4 +1,3 @@
-
 @extends('layouts.admin.master')
 
 @section('title', 'liste des etudiants')
@@ -67,11 +66,15 @@
                                                 </span>
                                             </a> --}}
 
-                                            <form action="{{ route('admin.resource.updateStatus_available', ['id' => $Resource->id]) }}" method="POST" style="display: inline;">
+                                            <form
+                                                action="{{ route('admin.resource.updateStatus_available', ['id' => $Resource->id]) }}"
+                                                method="POST" style="display: inline;">
                                                 @csrf
                                                 <button type="submit" class="btn btn-icon btn-primary">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                        fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
                                                     </svg>
                                                 </button>
                                             </form>
@@ -79,12 +82,16 @@
 
                                             <!--end::Update-->
                                             <!--begin::Delete-->
-                                            <form action="{{ route('admin.resource.updateStatus_is_not_available', ['id' => $Resource->id]) }}" method="POST" style="display: inline;">
+                                            <form
+                                                action="{{ route('admin.resource.updateStatus_is_not_available', ['id' => $Resource->id]) }}"
+                                                method="POST" style="display: inline;">
                                                 @csrf
                                                 <button type="submit" class="btn btn-icon btn-danger">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                                                  </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                                                        fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                                                    </svg>
 
                                                 </button>
                                             </form>
@@ -131,8 +138,8 @@
                                                             <span class="swal2-label"></span>
                                                         </label>
                                                         <textarea class="swal2-textarea" style="display: none;"></textarea>
-                                                        <div class="swal2-validation-message"
-                                                            id="swal2-validation-message" style="display: none;">
+                                                        <div class="swal2-validation-message" id="swal2-validation-message"
+                                                            style="display: none;">
                                                         </div>
 
 

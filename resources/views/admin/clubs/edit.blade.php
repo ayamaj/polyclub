@@ -31,7 +31,7 @@
 
                     <!--begin::description-->
                     <div class="fv-row mb-7">
-                        <label class="required fw-bold fs-6 mb-2">description</label>
+                        <label class="required fw-bold fs-6 mb-2">Section</label>
                         <input type="text" name="description" id="description"
                             class="form-control form-control-solid mb-3 mb-lg-0 " placeholder=" description"
                             value="{{ $club->description }}" ></input>
@@ -69,7 +69,7 @@
                     <div class="text-center pt-15">
 
                         <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                            <span class="indicator-label">Submit</span>
+                            <span class="indicator-label">Save</span>
                         </button>
                     </div>
                     <!--end::submit-->

@@ -1,6 +1,6 @@
 @extends('layouts.front.master')
 
-@section('title', 'liste des etudiants')
+@section('title', $event->titre)
 
 @section('content')
 

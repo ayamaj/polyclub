@@ -16,9 +16,10 @@
                     <div class="col-lg-4">
                         <div class="blog-item">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid" src="{{ asset($event->image) }}" alt="{{ $event->titre }}"
-                                    alt="" class="rounded-circle img-fluid"
-                                    style="width: 500px; height:200px; object-fit: cover;">
+                                <a href="{{ route('one_event', ['event' => $event->id]) }}">
+                                    <img class="img-fluid" src="{{ asset($event->image) }}" alt="{{ $event->titre }}"
+                                        alt="" class="rounded-circle img-fluid"
+                                        style="width: 500px; height:200px; object-fit: cover;"></a>
                             </div>
                             <div class="bg-secondary d-flex">
                                 <div
@@ -37,7 +38,8 @@
                                         <img src="{{ asset($event->image_club) }}" alt="HTML5 Icon"
                                             style="width:50px;height:50px;border-radius: 50%;">
                                     </div>
-                                    <a class="h4" href="{{ route('one_event', ['event' => $event->id]) }}">{{ $event->titre }}</a>
+                                    <a class="h4"
+                                        href="{{ route('one_event', ['event' => $event->id]) }}">{{ $event->titre }}</a>
                                 </div>
                                 <a
                                     href="{{ route('one_event', ['event' => $event->id]) }}"style="font-size: 16px;color: rgb(62, 62, 128);">

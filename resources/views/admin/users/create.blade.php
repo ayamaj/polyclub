@@ -86,7 +86,8 @@
                             <!--end::Label-->
                             <!--begin::Input wrapper-->
                             <div class="position-relative mb-3">
-                                <input class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
+                                <input
+                                    class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
                                     id="password" type="password" name="password" />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -106,19 +107,7 @@
                                 </span>
 
                             </div>
-                            <!--end::Input wrapper-->
-                            <!--begin::Meter-->
-                            {{-- <div class="d-flex align-items-center mb-3"
-                                data-kt-password-meter-control="highlight">
-                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
-                                </div>
-                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
-                                </div>
-                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2">
-                                </div>
-                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
-                            </div> --}}
-                            <!--end::Meter-->
+
                         </div>
                         <!--end::Wrapper-->
                         <!--begin::Hint-->

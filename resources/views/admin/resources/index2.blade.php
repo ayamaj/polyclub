@@ -1,4 +1,3 @@
-
 @extends('layouts.admin.master')
 
 @section('title', 'liste des etudiants')
@@ -37,7 +36,7 @@
                                 <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px"> all resource </th>
 
-                                   <th class="min-w-125px"></th>
+                                    <th class="min-w-125px"></th>
                                     <th class="text-end min-w-100px">Actions</th>
                                 </tr>
                                 <!--end::Table 1-->

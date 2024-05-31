@@ -20,6 +20,7 @@
                 <form id="kt_modal_add_user_form" class="form" action="{{ route('admin.club.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
+
                     <!--begin::name-->
                     <div class="fv-row mb-7">
                         <label class="required fw-bold fs-6 mb-2">Name</label>
@@ -34,12 +35,13 @@
                         </div>
                     </div>
                     <!--end::name-->
+
                     <!--begin::description-->
                     <div class="fv-row mb-7">
-                        <label class="required fw-bold fs-6 mb-2">Description</label>
+                        <label class="required fw-bold fs-6 mb-2">Section</label>
                         <input type="text" name="description" id="description"
                             class="form-control form-control-solid mb-3 mb-lg-0 @error('description') is-invalid @enderror"
-                            placeholder=" description"></input>
+                            placeholder=" section"></input>
                         <br>
                         <div class="container_message">
                             @error('description')
@@ -48,6 +50,7 @@
                         </div>
                     </div>
                     <!--end::description-->
+
                     <!--begin::Club president -->
                     <div class="fv-row mb-7">
                         <label class="required fw-bold fs-6 mb-2">Club President</label>
@@ -77,6 +80,7 @@
                         </div>
                     </div>
                     <!--end::Meeting date-->
+
                     <!--begin::Image input-->
                     <div class="form-group">
                         <label for="image" class="required fw-bold fs-6 mb-2">Image</label>

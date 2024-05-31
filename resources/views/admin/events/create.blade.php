@@ -17,7 +17,7 @@
                     @endforeach
                 </ul> --}}
                 <form id="kt_modal_add_user_form" class="form" action="{{ route('admin.event.store') }}" method="POST"
-                enctype="multipart/form-data">
+                    enctype="multipart/form-data">
                     @csrf
 
                     <!--begin::titre-->
@@ -60,7 +60,7 @@
                             @enderror
                         </div>
                     </div>
-                     <!--end::date-->
+                    <!--end::date-->
 
                     <!--begin::duration-->
                     <div class="fv-row mb-7">
@@ -87,10 +87,11 @@
                             @enderror
                         </div>
                     </div>
-                     <!--end::place-->
-                        <!--begin::place-->
+                    <!--end::place-->
+                    <!--begin::place-->
                     <div class="fv-row mb-7">
-                        <label class="required fw-bold fs-6 mb-2 @error('link') is-invalid @enderror">link google Form </label>
+                        <label class="required fw-bold fs-6 mb-2 @error('link') is-invalid @enderror">link google Form
+                        </label>
                         <input type="text" name="link" id="link"
                             class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Link" />
                         <br>
@@ -100,11 +101,12 @@
                             @enderror
                         </div>
                     </div>
-                     <!--end::place-->
-                     <!--begin::Image input-->
+                    <!--end::place-->
+                    <!--begin::Image input-->
                     <div class="form-group">
                         <label for="image" class="required fw-bold fs-6 mb-2">Image</label>
-                        <input type="file" style="border: none" id="image" name="image" class="@error('image') is-invalid @enderror">
+                        <input type="file" style="border: none" id="image" name="image"
+                            class="@error('image') is-invalid @enderror">
                         <br>
                         <div class="container_message">
                             @error('image')
@@ -115,18 +117,19 @@
                     <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                     <!--end::Image input-->
                     <!--begin::logo club input-->
-                         <div class="form-group">
-                            <label for="image_club" class="required fw-bold fs-6 mb-2">logo club</label>
-                            <input type="file" style="border: none" id="image_club" name="image_club" class="@error('image_club') is-invalid @enderror">
-                            <br>
-                            <div class="container_message">
-                                @error('image_club')
-                                    <span style="color: red">{{ $message }}</span>
-                                @enderror
-                            </div>
+                    <div class="form-group">
+                        <label for="image_club" class="required fw-bold fs-6 mb-2">logo club</label>
+                        <input type="file" style="border: none" id="image_club" name="image_club"
+                            class="@error('image_club') is-invalid @enderror">
+                        <br>
+                        <div class="container_message">
+                            @error('image_club')
+                                <span style="color: red">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-                   <!--end::logo club input-->
+                    </div>
+                    <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                    <!--end::logo club input-->
 
                     <!--begin::submit-->
                     <div class="text-center pt-15">

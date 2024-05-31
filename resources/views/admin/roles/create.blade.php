@@ -45,18 +45,17 @@
                     <!--begin::permission-->
                     <label class="required fw-bold fs-6 mb-5">Permission</label>
                     @foreach ($permissions as $permission)
-                    <div class="d-flex fv-row">
-                        <div class="form-check form-check-custom form-check-solid">
-                            <input class="form-check-input me-3 @error('permission') is-invalid @enderror" type="checkbox"
-                                   value="{{ $permission->id }}" id="permission_{{ $permission->id }}"
-                                   name="permissions[]"
-                                    />
-                            <label class="form-check-label" for="permission_{{ $permission->id }}">
-                                <div class="fw-bolder text-gray-800">{{ $permission->name }}</div>
-                            </label>
+                        <div class="d-flex fv-row">
+                            <div class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input me-3 @error('permission') is-invalid @enderror"
+                                    type="checkbox" value="{{ $permission->id }}" id="permission_{{ $permission->id }}"
+                                    name="permissions[]" />
+                                <label class="form-check-label" for="permission_{{ $permission->id }}">
+                                    <div class="fw-bolder text-gray-800">{{ $permission->name }}</div>
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class='separator separator-dashed my-5'></div>
+                        <div class='separator separator-dashed my-5'></div>
                     @endforeach
                     <div class="container_message">
                         @error('permission')

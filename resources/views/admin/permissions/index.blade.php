@@ -24,7 +24,7 @@
                     <div class="card-header mt-6">
                         <div class="card-title">
 
-                          <!-- resources/views/form/search.blade.php -->
+                            <!-- resources/views/form/search.blade.php -->
 
                         </div>
                         <div class="card-toolbar">
@@ -105,7 +105,8 @@
                                                         <h2 class="swal2-title" id="swal2-title" style="display: none;">
                                                         </h2>
                                                         <div class="swal2-html-container" id="swal2-html-container"
-                                                            style="display: block;">Are you sure you want to delete {{ $Permission->nom }}?</div>
+                                                            style="display: block;">Are you sure you want to delete
+                                                            {{ $Permission->nom }}?</div>
                                                         <input class="swal2-input" style="display: none;"><input
                                                             type="file" class="swal2-file" style="display: none;">
                                                         <div class="swal2-range" style="display: none;">

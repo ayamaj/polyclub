@@ -53,7 +53,7 @@
                                     <div class="text-gray-800 fw-bolder fs-4">
                                         <span >{{ $club->users->count() }}</span>
                                     </div>
-                                    <span class="text-gray-500 fs-7 d-block fw-bolder">number membre</span>
+                                    <span class="text-gray-500 fs-7 d-block fw-bolder">Number Membre</span>
 
                                 </div>
                                 <!--end::Col-->
@@ -62,7 +62,7 @@
                                     <div class="text-gray-800 fw-bolder fs-4">
                                        <div>{{ $club->president }}</div>
                                     </div>
-                                    <span class="text-gray-500 fs-7 d-block fw-bolder">president club</span>
+                                    <span class="text-gray-500 fs-7 d-block fw-bolder"> President Club</span>
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -178,7 +178,7 @@
                     <div class="card mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bolder text-dark">membre de club</span>
+                                <span class="card-label fw-bolder text-dark">Club Membres </span>
                                 {{-- <span class="text-muted mt-1 fw-bold fs-7">8k social visitors</span> --}}
                             </h3>
                         </div>
