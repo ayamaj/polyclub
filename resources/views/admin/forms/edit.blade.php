@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'liste des etudiants')
+@section('title', 'forms')
 
 @section('content')
     <div class="container mt-5 mb-5 d-flex justify-content-center">
@@ -112,13 +112,13 @@
                             <div class="d-flex fv-row">
                                 <div class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input me-3 @error('name') is-invalid @enderror" name="role_id"
-                                        type="radio" value="{{ $role->id }}" id="kt_modal_update_role_option_0" />
+                                        type="radio" value="{{ $role->id }}" id="kt_modal_update_role_option_{{ $role->id }}"
+                                        @if ($role->name == 'member') checked @endif />
                                     <br>
 
-                                    <label class="form-check-label" for="kt_modal_update_role_option_0">
+                                    <label class="form-check-label" for="kt_modal_update_role_option_{{ $role->id }}">
                                         <div class="fw-bolder text-gray-800">{{ $role->name }}</div>
-                                        <div class="text-gray-600">{{ $role->description }}
-                                        </div>
+                                        <div class="text-gray-600">{{ $role->description }}</div>
                                     </label>
                                 </div>
                             </div>
@@ -130,6 +130,7 @@
                             @enderror
                         </div>
                     </div>
+
                     <div class="mb-7">
                         <!--begin::permission-->
                         <label class="required fw-bold fs-6 mb-5">Club</label>

@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title>Good – Bootstrap 5 HTML Admin Dashboard Template by Keenthemes</title>
+    <title>Register</title>
     <meta charset="utf-8" />
     <meta name="description"
         content="Good admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
@@ -60,7 +60,7 @@
                         <form class="form w-100" method="POST" action="{{ route('inscription.store') }}">
                             @csrf
                             <div class="mb-10 text-center">
-                                <h1 class="text-dark mb-3">Form </h1>
+                                <h1 class="text-dark mb-3">Register</h1>
                                 {{-- <div class="text-gray-400 fw-bold fs-4">Already have an account?
                                     <a href="../sign-in/basic.html" class="link-primary fw-bolder">Sign in here</a>
                                 </div> --}}

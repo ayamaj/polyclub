@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'liste des etudiants')
+@section('title', 'create_event')
 
 @section('content')
     <div class="container mt-5 mb-5 d-flex justify-content-center">
@@ -90,16 +90,12 @@
                     <!--end::place-->
                     <!--begin::place-->
                     <div class="fv-row mb-7">
-                        <label class="required fw-bold fs-6 mb-2 @error('link') is-invalid @enderror">link google Form
+                        <label class="required fw-bold fs-6 mb-2 ">link google Form
                         </label>
                         <input type="text" name="link" id="link"
                             class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Link" />
                         <br>
-                        <div class="container_message">
-                            @error('link')
-                                <span>{{ $message }}</span>
-                            @enderror
-                        </div>
+
                     </div>
                     <!--end::place-->
                     <!--begin::Image input-->

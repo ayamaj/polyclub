@@ -27,8 +27,8 @@
                                 <!--begin::Info-->
                                 <div class="text-center">
                                     <!--begin::Name-->
-                                    <a href="../user-profile/overview.html"
-                                        class="text-gray-800 fw-bolder text-hover-primary fs-4">{{ $club->name }}</a>
+                                    <h5 href="../user-profile/overview.html"
+                                        class="text-gray-800 fw-bolder text-hover-primary fs-4">{{ $club->name }}  </h5>
                                     <!--end::Name-->
                                     <!--begin::Position-->
                                     {{-- <span class="text-muted d-block fw-bold">Grade 8, AE3 Student</span> --}}
@@ -194,7 +194,7 @@
                                 <!--begin::Section-->
                                 <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                     <div class="flex-grow-1 me-2">
-                                        <a href="../user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $membre->name }}</a>
+                                        <div  class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $membre->name }}</div>
                                         <span class="text-muted fw-bold d-block fs-7">{{ $membre->email }}</span>
                                     </div>
                                     <a href="../user-profile/overview.html" class="btn btn-sm btn-light fs-8 fw-bolder">{{ $membre->class }}</a>

@@ -5,22 +5,30 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClubRequest;
 use App\Models\Club;
+use App\Models\Form;
+use App\Models\User;
+use App\Notifications\Accept_User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ClubController extends Controller
 {
 
     public function index()
     {
+        $user = Auth::user();
         $clubs = Club::all();
-        return view('admin.clubs.index', compact('clubs'));
+        return view('admin.clubs.index', compact('clubs','user'));
     }
+
+
 
     public function index_one_club(Club $club)
     {
         return view('admin.clubs.index_one_club', compact('club'));
     }
-  
+
     public function edit_one_club($id)
     {
         $club = Club::findOrFail($id);
@@ -106,4 +114,48 @@ class ClubController extends Controller
     // }
 
 
-}
+
+    public function update2(Request $request)
+    {
+        // Validate the incoming request data
+        $request->validate([
+            'clubs' => 'required|array|min:1', // Ensure at least one club is selected
+            'clubs.*' => 'exists:clubs,id',
+        ]);
+
+        // Get the authenticated user
+        $user = Auth::user();
+      
+
+        if ($user) {
+            // Sync clubs
+            $user->clubs()->syncWithoutDetaching($request->clubs);
+
+            // Delete the form entry if it exists
+            if ($form = Form::find($request->id)) {
+                $form->delete();
+            }
+
+            // Send notification (if needed)
+            // Notification::route('mail', [
+            //     $user->email => $user->name,
+            // ])->notify(new Accept_User());
+
+            // Redirect back with status message
+            return redirect()->route('admin.club.index')->with('status', 'You have successfully joined the club(s).');
+        } else {
+            return redirect()->route('login')->with('error', 'You need to be logged in to join a club.');
+        }
+    }
+
+
+    }
+
+
+
+
+
+
+
+
+

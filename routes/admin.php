@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\ResourceController;
+use App\Http\Controllers\admin\User_club_request_Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,9 @@ Route::get('/register', function () {
 Route::get('/verify', function () {
     return view('auth/verify');})->name('verify');
 
+Route::middleware('auth')->post('/update2', [ClubController::class, 'update2'])->name('update2');
+
+
 
 // Route::get('/confirm_password', function () {
 //     return view('auth/passwords/confirm');})->name('confirm_password');
@@ -82,7 +86,7 @@ Route::middleware('auth')->group(function () {
 // });
 
     //  Permissions Routes
-   Route::prefix('permissions')->as('permission.')->group(function () {
+   Route::prefix('permissions')->middleware(['permission:permissions'])->as('permission.')->group(function () {
        Route::post('/delete/{id}', [PermissionController::class, 'delete'])->name('delete');
        Route::get('/edit/{id}', [PermissionController::class, 'edit'])->name('edit');
        Route::post('/update', [PermissionController::class, 'update'])->name('update');
@@ -96,7 +100,7 @@ Route::middleware('auth')->group(function () {
 // End Permissions Routes
 
 //  Roles Routes
-    Route::prefix('roles')->as('role.')->group(function () {
+    Route::prefix('roles')->middleware(['permission:roles'])->as('role.')->group(function () {
        Route::post('/delete/{id}', [RoleController::class, 'delete'])->name('delete');
        Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('edit');
        Route::post('/update', [RoleController::class, 'update'])->name('update');
@@ -116,6 +120,10 @@ Route::middleware('auth')->group(function () {
       Route::get('/create', [ClubController::class, 'create'])->name('create');
       Route::post('/store', [ClubController::class, 'store'])->name('store');
       Route::get('/index_one_club/{club}', [ClubController::class, 'index_one_club'])->name('index_one_club');
+
+
+    //   Route::get('/update2', [ClubController::class, 'update2'])->name('update2');
+
 
 
 });
@@ -161,7 +169,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/update-status_is_not_available/{id}', [ResourceController::class, 'updateStatus_is_not_available'])->name('updateStatus_is_not_available');
 
   });
+  Route::prefix('user_club_request')->as('user_club_request.')->group(function () {
 
+    Route::get('/', [User_club_request_Controller::class,'index'])->name('index');
+
+     });
 
 
     });

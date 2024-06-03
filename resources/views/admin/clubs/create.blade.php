@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'liste des etudiants')
+@section('title', 'create_club')
 
 @section('content')
     <div class="container mt-5 mb-5 d-flex justify-content-center">

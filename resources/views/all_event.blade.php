@@ -1,6 +1,6 @@
 @extends('layouts.front.master')
 
-@section('title', 'liste des etudiants')
+@section('title', 'all_events')
 
 @section('content')
 

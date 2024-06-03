@@ -19,7 +19,11 @@
                         <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
                         <h1 class= "mb-4">{{ $event->date }}</h1>
                         <p class="mb-4">{{ $event->description }}</p>
-                        <a href="{{ $event->link }}" class="btn btn-primary mt-2 py-2 px-5">rejoin the event </a>
+
+                        @if ($event->link)
+    <a href="{{ $event->link }}" class="btn btn-primary mt-2 py-2 px-5">Join the event</a>
+@endif
+
                     </div>
                 </div>
             </div>

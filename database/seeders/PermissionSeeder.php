@@ -48,6 +48,10 @@ class PermissionSeeder extends Seeder
             'name' => 'request_resource',
 
          ]);
+         \App\Models\Permission::factory()->create([
+            'name' => 'message_resources',
+
+         ]);
 
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title', 'liste des etudiants')
+@section('title', 'all_events')
 
 @section('content')
     @if (session('status'))
@@ -85,18 +85,18 @@
                                         <td class="d-flex align-items-center">
                                             <!--begin::image -->
                                             <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                                <a href="view.html">
+
                                                     <div class="symbol-label">
                                                         <img src="{{ asset($Event->image) }}" alt="{{ $Event->titre }}"
                                                             class="w-100" />
                                                     </div>
-                                                </a>
+
                                             </div>
                                             <!--end::image-->
                                             <!--begin::name et email-->
                                             <div class="d-flex flex-column">
-                                                <a href="view.html"
-                                                    class="text-gray-800 text-hover-primary mb-1">{{ $Event->titre }}</a>
+                                                <div
+                                                    class="text-gray-800 text-hover-primary mb-1">{{ $Event->titre }}</div>
                                                 <span>{{ $Event->place }}</span>
                                             </div>
                                             <!--end::name et email-->

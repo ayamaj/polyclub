@@ -37,7 +37,7 @@
 
                <a href="{{ route('home') }}"class="nav-item nav-link">Home</a>
                 {{-- <a href="{{ route('login') }}" class="nav-item nav-link">Sign-In<a> --}}
-                <a href="{{ route('inscription') }}" class="nav-item nav-link">Inscription</a>
+                <a href="{{ route('inscription') }}" class="nav-item nav-link">Register</a>
                 <a href="{{ route('clubs') }}" class="nav-item nav-link">Clubs</a>
                 <a href="{{ route('events') }}" class="nav-item nav-link">Events</a>
                 @auth

@@ -8,6 +8,10 @@ use App\Models\Club;
 use App\Models\Event;
 use App\Models\Form;
 use App\Models\Role;
+use App\Models\User;
+use App\Notifications\MemberRegistred;
+use App\Notifications\MemberRegistredAdmin;
+use Illuminate\Support\Facades\Notification;
 
 class welcomeController extends Controller
 {
@@ -40,6 +44,7 @@ class welcomeController extends Controller
     }
     public function store(FormulaireRequest $request)
     {
+
         //  dd($request->all());
         $form = Form::create([
             'name' => $request->name,
@@ -51,6 +56,15 @@ class welcomeController extends Controller
         ]);
         $form->clubs()->sync($request->club_id);
 
+        Notification::route('mail', [
+            $request->email => $request->name,
+        ])->notify(new MemberRegistred());
+
+
+        $admins = User::where('role_id',1)->get();
+        foreach ($admins as $admin){
+            $admin->notify(new MemberRegistredAdmin);
+        }
         return redirect()->route('home')->with('status', 'You Successfully joined');
     }
 

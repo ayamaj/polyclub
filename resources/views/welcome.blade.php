@@ -1,6 +1,6 @@
 @extends('layouts.front.master')
 
-@section('title', 'site vitrine')
+@section('title', 'Home')
 
 @section('content')
 
