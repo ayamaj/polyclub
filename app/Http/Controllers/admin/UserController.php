@@ -55,39 +55,53 @@ public function store(UserRequest $request)
     $user->clubs()->sync($request->clubs);
 
     // Redirection vers la route 'admin.user.index' avec un message de succès
-    return redirect()->route('admin.user.index')->with('status', 'La personne a bien été ajoutée avec succès');
+    return redirect()->route('admin.user.index')->with('status', 'The person has been successfully added.');
 }
 
 
 
     public function delete($id){
            User::find($id)->delete();
-           return redirect()->route('admin.user.index')->with('status','le personne a bien ete supprime ');
+           return redirect()->route('admin.user.index')->with('status','The person has been successfully deleted');
        }
 
-    public function update(Request $request)
-    {
-            $request->validate([
-                'name' => 'required|string',
-                'number'=> 'required|string',
-                'role_id'=> 'required|string',
-                'class' => 'required|string',
-                'email' => 'required|string',
-                'password' => 'required|min:8',
-            ]);
-               User::find($request->id)->update([
-                'name'=> $request->name,
-                'number'=> $request->number,
-                'role_id'=> $request->role_id,
-                'class'=> $request->class,
-                'email'=> $request->email,
-                'password'=> $request->password,
-            ]);
+       public function update(Request $request)
+       {
+           // Valider les données de la requête
+           $request->validate([
+               'name' => 'required|string',
+               'number'=> 'required|string',
+               'role_id'=> 'required|string',
+               'class' => 'required|string',
+               'email' => 'required|string',
+               'password' => 'required|min:8',
+               'clubs' => 'array', // Assurez-vous que 'clubs' est un tableau
+           ]);
 
+           // Trouver l'utilisateur par ID
+           $user = User::find($request->id);
 
-        return redirect()->route('admin.user.index')->with('status', 'le personne  a bien été modifié avec succès');
+           // Mettre à jour les attributs de l'utilisateur
+           $user->update([
+               'name' => $request->name,
+               'number' => $request->number,
+               'role_id' => $request->role_id,
+               'class' => $request->class,
+               'email' => $request->email,
+               'password' => bcrypt($request->password), // Crypter le mot de passe
+           ]);
 
-    }
+           // Mettre à jour les clubs associés à l'utilisateur
+           if ($request->has('clubs')) {
+               $user->clubs()->sync($request->clubs);
+           } else {
+               $user->clubs()->detach(); // Si aucun club n'est sélectionné, détacher tous les clubs
+           }
+
+           // Redirection avec un message de succès
+           return redirect()->route('admin.user.index')->with('status', 'The personnel has been successfully modified');
+       }
+
 
     // public function __construct()
     // {

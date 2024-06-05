@@ -60,7 +60,7 @@ class ResourceController extends Controller
         Resource::create([
             'message' => $request->message,
         ]);
-        return redirect()->route('admin.resource.index2')->with('status', 'le permission a bien été ajouté avec succès');
+        return redirect()->route('admin.resource.index2')->with('status', 'The resource has been successfully added.');
     }
 
     public function updateStatus_available($id)

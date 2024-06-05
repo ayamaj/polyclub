@@ -153,8 +153,7 @@
                                                     </span>
                                                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                                                         @foreach ($User->clubs as $club)
-                                                            <a class="menu-link"
-                                                                href="{{ route('admin.club.edit', ['id' => $club->id]) }}">
+                                                            <a class="menu-link">
                                                                 <span class="menu-bullet">
                                                                     <span class="bullet bullet-dot"></span>
                                                                 </span>

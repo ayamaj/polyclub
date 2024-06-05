@@ -36,7 +36,7 @@
                     <!--begin::description-->
                     <div class="fv-row mb-7">
                         <label
-                            class="required fw-bold fs-6 mb-2 @error('description') is-invalid @enderror">Description</label>
+                            class="required fw-bold fs-6 mb-2 @error('description') is-invalid @enderror">Section</label>
                         <input type="text" name="description" id="description"
                             class="form-control form-control-solid mb-3 mb-lg-0" placeholder=" description" />
                         <br>
@@ -100,7 +100,7 @@
                     <!--end::place-->
                     <!--begin::Image input-->
                     <div class="form-group">
-                        <label for="image" class="required fw-bold fs-6 mb-2">Image</label>
+                        <label for="image" class="required fw-bold fs-6 mb-2">Image Event</label>
                         <input type="file" style="border: none" id="image" name="image"
                             class="@error('image') is-invalid @enderror">
                         <br>

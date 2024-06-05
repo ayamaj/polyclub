@@ -59,13 +59,13 @@ class ClubController extends Controller
             'image' => $avatarName,
             'date' => $request->date,
         ]);
-        return redirect()->route('admin.club.index')->with('status', 'le club a bien été ajouté avec succès');
+        return redirect()->route('admin.club.index')->with('status', 'The club has been successfully added');
     }
 
     public function delete($id)
     {
         Club::find($id)->delete();
-        return redirect()->route('admin.club.index')->with('status', 'le club a bien ete supprime ');
+        return redirect()->route('admin.club.index')->with('status', 'The club has been successfully deleted');
     }
 
     public function update(Request $request)
@@ -90,7 +90,7 @@ class ClubController extends Controller
             'date' => $request->date,
         ]);
 
-        return redirect()->route('admin.club.index')->with('status', 'le club  a bien été modifié avec succès');
+        return redirect()->route('admin.club.index')->with('status', 'The club has been successfully modified.');
     }
 
     public function search(Request $request)
@@ -125,7 +125,7 @@ class ClubController extends Controller
 
         // Get the authenticated user
         $user = Auth::user();
-      
+
 
         if ($user) {
             // Sync clubs

@@ -64,31 +64,7 @@
                     <!--begin::role-->
                     <br>
                     <br>
-                    {{-- <div class="mb-7">
-                        <label class="required fw-bold fs-6 mb-5">Role</label>
-                        @foreach ($roles as $role)
-                            <div class="d-flex fv-row">
-                                <div class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input me-3 " name="role_id" type="radio"
-                                        value="{{ $role->id }}" id="kt_modal_update_role_option_0" checked='checked' />
-                                    <label class="form-check-label" for="kt_modal_update_role_option_0">
-                                        <div class="fw-bolder text-gray-800">{{ $role->name }}</div>
-                                        <div class="text-gray-600">Best for business owners and company
-                                            administrators
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class='separator separator-dashed my-5'></div>
-                        @endforeach
-                        <!--begin::Actions-->
-                        <div class="text-center pt-15">
-                            <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                                Submit
-                            </button>
-                        </div>
-                        <!--end::Actions-->
-                    </div> --}}
+                 
                     <div class="mb-7">
                         <label class="required fw-bold fs-6 mb-5">Role</label>
                         @foreach ($roles as $role)
@@ -105,9 +81,7 @@
                                     </div>
                                     <label class="form-check-label" for="kt_modal_update_role_option_0">
                                         <div class="fw-bolder text-gray-800">{{ $role->name }}</div>
-                                        <div class="text-gray-600">Best for business owners and company
-                                            administrators
-                                        </div>
+
                                     </label>
                                 </div>
                             </div>
@@ -117,18 +91,7 @@
                     <div class="mb-7">
                         <!--begin::permission-->
                         <label class="required fw-bold fs-6 mb-5">Club</label>
-                        {{-- @foreach ($clubs as $club)
-                            <div class="d-flex fv-row">
-                                <div class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input me-3" type="checkbox" value="{{ $club->id }}"
-                                        id="permission_{{ $club->id }}" name="permissions[]" />
-                                    <label class="form-check-label" for="permission_{{ $club->id }}">
-                                        <div class="fw-bolder text-gray-800">{{ $club->name }}</div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class='separator separator-dashed my-5'></div>
-                        @endforeach --}}
+
                         @foreach ($clubs as $club)
                             <div class="d-flex fv-row">
                                 <div class="form-check form-check-custom form-check-solid">

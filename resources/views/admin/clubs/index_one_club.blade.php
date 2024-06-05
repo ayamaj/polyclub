@@ -21,8 +21,10 @@
                             <div class="d-flex flex-column text-center mb-9 px-9">
                                 <!--begin::Photo-->
                                 <div class="symbol symbol-80px symbol-lg-150px mb-4">
-                                    <img src="{{ asset($club->image) }}" alt="{{ $club->nom }}"/>
+                                    <img src="{{ asset($club->image) }}" alt="{{ $club->nom }}" class="rounded-circle border" style="width: 130px; height: 130px; border-width: 10px; ">
                                 </div>
+
+
                                 <!--end::Photo-->
                                 <!--begin::Info-->
                                 <div class="text-center">
@@ -178,7 +180,7 @@
                     <div class="card mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bolder text-dark">Club Membres </span>
+                                <span class="card-label fw-bolder text-dark"> Membres Club </span>
                                 {{-- <span class="text-muted mt-1 fw-bold fs-7">8k social visitors</span> --}}
                             </h3>
                         </div>

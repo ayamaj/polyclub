@@ -32,13 +32,13 @@ class PermissionController extends Controller
         Permission::create([
             'name' => $request->name,
         ]);
-        return redirect()->route('admin.permission.index')->with('status', 'le permission a bien été ajouté avec succès');
+        return redirect()->route('admin.permission.index')->with('status', 'The permission has been successfully added');
     }
 
     public function delete($id)
     {
         Permission::find($id)->delete();
-        return redirect()->route('admin.permission.index')->with('status', 'le permission a bien ete supprime ');
+        return redirect()->route('admin.permission.index')->with('status', 'The permission has been successfully deleted.');
     }
 
     public function update(Request $request)
@@ -51,7 +51,7 @@ class PermissionController extends Controller
 
         $permission->save();
 
-        return redirect()->route('admin.permission.index')->with('status', 'le permission  a bien été modifié avec succès');
+        return redirect()->route('admin.permission.index')->with('status', 'The permission has been successfully modified');
     }
 
     public function search(Request $request)

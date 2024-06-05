@@ -43,13 +43,13 @@ class EventController extends Controller
             'place' => $request->place,
             'link' => $request->link,
         ]);
-        return redirect()->route('admin.event.index')->with('status', 'le event a bien été ajouté avec succès');
+        return redirect()->route('admin.event.index')->with('status', 'The event has been successfully added.');
     }
 
     public function delete($id)
     {
         Event::find($id)->delete();
-        return redirect()->route('admin.event.index')->with('status', 'Le event a bien été supprimé');
+        return redirect()->route('admin.event.index')->with('status', 'The event has been successfully deleted');
     }
 
     public function update(Request $request)
@@ -81,7 +81,7 @@ class EventController extends Controller
             'place' => $request->place,
             'link' => $request->place,
         ]);
-        return redirect()->route('admin.event.index')->with('status', 'le event a bien été modifié avec succès');
+        return redirect()->route('admin.event.index')->with('status', 'The event has been successfully modified');
     }
 
     public function search(Request $request)

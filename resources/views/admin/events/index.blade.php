@@ -71,7 +71,7 @@
                                 <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">image</th>
 
-                                    <th class="min-w-220px">Description</th>
+                                    <th class="min-w-220px">Section</th>
                                     <th class="min-w-125px">Date</th>
                                     <th class="min-w-125px">Duration</th>
                                     @permission('action_event')

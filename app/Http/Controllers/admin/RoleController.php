@@ -45,13 +45,13 @@ class RoleController extends Controller
         // Sync permissions with the role
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('admin.role.index')->with('status', 'le role a bien été ajouté avec succès');
+        return redirect()->route('admin.role.index')->with('status', 'The role has been successfully added');
     }
 
     public function delete($id)
     {
         Role::find($id)->delete();
-        return redirect()->route('admin.role.index')->with('status', 'Le rôle a bien été supprimé');
+        return redirect()->route('admin.role.index')->with('status', 'The role has been successfully deleted');
     }
 
     public function update(RoleRequest $request)
@@ -68,6 +68,6 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);
         $role->save();
-        return redirect()->route('admin.role.index')->with('status', 'le role  a bien été modifié avec succès');
+        return redirect()->route('admin.role.index')->with('status', 'The role has been successfully modified');
     }
 }

@@ -106,7 +106,7 @@
                                                         </h2>
                                                         <div class="swal2-html-container" id="swal2-html-container"
                                                             style="display: block;">Are you sure you want to delete
-                                                            {{ $Permission->nom }}?</div>
+                                                            {{ $Permission->name }}?</div>
                                                         <input class="swal2-input" style="display: none;"><input
                                                             type="file" class="swal2-file" style="display: none;">
                                                         <div class="swal2-range" style="display: none;">
