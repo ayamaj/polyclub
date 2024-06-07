@@ -122,19 +122,23 @@ class ClubController extends Controller
             'clubs' => 'required|array|min:1', // Ensure at least one club is selected
             'clubs.*' => 'exists:clubs,id',
         ]);
-
-        // Get the authenticated user
         $user = Auth::user();
 
-
-        if ($user) {
-            // Sync clubs
-            $user->clubs()->syncWithoutDetaching($request->clubs);
-
-            // Delete the form entry if it exists
-            if ($form = Form::find($request->id)) {
-                $form->delete();
-            }
+    if (Form::where('email', $user->email)->first()) {
+        // Redirect back with an error message
+        return redirect()->route('admin.club.index')->with('error', 'You have already submitted a request.');
+    }
+        // Get the authenticated user
+            //  dd($request->all());
+            $form = Form::create([
+                'name' => $user->name,
+                'number' => $user->number,
+                // 'role_id'=> $request->role_id,
+                'class' => $user->class,
+                'email' => $user->email,
+                'password' => $user->password,
+            ]);
+            $form->clubs()->sync($request->clubs);
 
             // Send notification (if needed)
             // Notification::route('mail', [
@@ -143,13 +147,11 @@ class ClubController extends Controller
 
             // Redirect back with status message
             return redirect()->route('admin.club.index')->with('status', 'You have successfully joined the club(s).');
-        } else {
-            return redirect()->route('login')->with('error', 'You need to be logged in to join a club.');
-        }
     }
 
 
-    }
+
+}
 
 
 

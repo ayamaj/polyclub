@@ -10,6 +10,13 @@
             </div>
         </div>
     @endif
+    @if (session('error'))
+    <div id="flash-message"class="d-flex justify-content-center">
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
+    </div>
+@endif
     <ul>
         @foreach ($errors->all() as $error)
             <li class="alert alert-danger" role="alert" id="flash-message">
